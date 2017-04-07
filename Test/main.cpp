@@ -14,11 +14,20 @@ int main(int argc, char *argv[])
 
 
    //----------------------
-    namespace  str {
-    class Max;
-    }
-
 
     //Cikle ne ochen'
     return 0;
 }
+
+namespace  str {
+class Max;
+}
+
+class str::Max{
+public:
+    explicit Max()
+        :t(new int[3]) {}
+
+private:
+    int* t;
+};
