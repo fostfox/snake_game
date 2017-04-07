@@ -8,5 +8,6 @@ int main(int argc, char *argv[])
     for (int i = 0 ; i < 5; ++i) {
         count << i << endl;
     }
+    //Cikle ne ochen'
     return 0;
 }
