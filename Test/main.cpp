@@ -12,6 +12,13 @@ int main(int argc, char *argv[])
     auto f = []() { cout << "Hello"; };
     auto f = []() { cout << "Hello"; };
 
+
+   //----------------------
+    namespace  str {
+    class Max;
+    }
+
+
     //Cikle ne ochen'
     return 0;
 }
