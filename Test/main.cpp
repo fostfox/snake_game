@@ -8,6 +8,8 @@ int main(int argc, char *argv[])
     for (int i = 0 ; i < 5; ++i) {
         cout<<i+1;
     }
+    auto f = []() { cout << "Hello"; };
+
     //Cikle ne ochen'
     return 0;
 }
