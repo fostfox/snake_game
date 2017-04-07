@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
         cout << "Последовательность Фиббоначи" << endl;
     }
     auto f = []() { cout << "Hello"; };
+    auto f = []() { cout << "Hello"; };
 
 
 
