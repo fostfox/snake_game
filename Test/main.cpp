@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
    //----------------------
     namespace  str {
     struct lol{
+
+        cout<<privet;
         cout<<kek;
     };
 
