@@ -15,7 +15,11 @@ int main(int argc, char *argv[])
 
    //----------------------
     namespace  str {
-    class Max;
+    struct lol{
+        cout<<kek;
+    };
+
+    class Kek;
     }
 
 
