@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
     auto f = []() { cout << "Hello"; };
 
 
-
    //----------------------
     namespace  str {
     class Max;
