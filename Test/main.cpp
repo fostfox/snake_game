@@ -4,6 +4,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    cout << "Hello World and a Vanya" << endl;
+    cout << "Hello World and a Bogdan" << endl;
     return 0;
 }
