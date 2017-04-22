@@ -12,6 +12,7 @@ const QVector<QVector<GameController::ObjectType> >& GameController::getField()
 
 void GameController::startGame()
 {
+    //Создаем змейку
     snake=new Snake(fieldWidth, fieldHeight);
     if(gameType==0){
         for(int i(0);i<fieldWidth;i++){

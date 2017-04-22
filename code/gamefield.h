@@ -9,7 +9,7 @@ class GameController
     Q_OBJECT
 public:
     GameController();
-    enum ObjectType{fSnake,fWall,fBonus};
+    enum ObjectType{fEmpty,fSnake,fWall,fBonus};
     const QVector<QVector<ObjectType>>& getField();
     void startGame();
 public slots:
