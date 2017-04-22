@@ -12,6 +12,9 @@ public:
     enum ObjectType{fEmpty,fSnake,fWall,fBonus};
     const QVector<QVector<ObjectType>>& getField();
     void startGame();
+signals:
+    void draw();
+    void gameOver();
 public slots:
     void fieldSize(int x, int y);
     void fieldSettings(int type, int speed);

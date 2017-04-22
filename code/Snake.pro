@@ -32,4 +32,4 @@ HEADERS  += mainwindow.h \
     snake.h \
     gamefield.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
