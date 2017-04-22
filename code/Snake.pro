@@ -26,10 +26,38 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     snake.cpp \
-    gamefield.cpp
+    gamefield.cpp \
+    drawfieldmanager.cpp \
+    wgt_pages/page_menu.cpp \
+    wgt_pages/page_field.cpp \
+    wgt_pages/page_configuration.cpp \
+    wgt_pages/page_highscores.cpp \
+    wgt_pages/page_score.cpp \
+    wgt_pages/page_settings.cpp \
+    wgt_pages/page_welcomescreen.cpp \
+    wgt_pages/dialog_property.cpp
 
 HEADERS  += mainwindow.h \
     snake.h \
-    gamefield.h
+    gamefield.h \
+    drawfieldmanager.h \
+    wgt_pages/page_menu.h \
+    wgt_pages/page_field.h \
+    wgt_pages/page_configuration.h \
+    wgt_pages/page_highscores.h \
+    wgt_pages/page_score.h \
+    wgt_pages/page_settings.h \
+    wgt_pages/page_welcomescreen.h \
+    wgt_pages/dialog_property.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    wgt_pages/page_menu.ui \
+    wgt_pages/page_field.ui \
+    wgt_pages/page_configuration.ui \
+    wgt_pages/page_highscores.ui \
+    wgt_pages/page_score.ui \
+    wgt_pages/page_settings.ui \
+    wgt_pages/page_welcomescreen.ui \
+    wgt_pages/dialog_property.ui
+
+
