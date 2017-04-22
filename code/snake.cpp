@@ -1,13 +1,8 @@
 #include "snake.h"
 
-Snake::Snake()
-{
-
-}
-
-Snake::Snake():m_direction(Left){
+Snake::Snake(int p_x, int p_y):m_direction(Left){
     for(int i(0);i<StartSize;i++){
-        m_body.push_back(Point(15+i,10));
+        m_body.push_back(Point((p_x/2)+i,(p_y/2)));
     }
 }
 

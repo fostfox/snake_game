@@ -2,6 +2,8 @@
 #define SNAKE_H
 #include <QVector>
 
+enum Direction { Up, Down, Left, Right };
+
 struct Point {
     int x;
     int y;
@@ -11,9 +13,8 @@ struct Point {
 class Snake
 {
 public:
-    enum Direction { Up, Down, Left, Right };
 
-    Snake();
+    Snake(int p_x, int p_y);
     void increase();
     void getCoordinates();
 
