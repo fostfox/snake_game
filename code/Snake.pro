@@ -59,9 +59,3 @@ FORMS    += mainwindow.ui \
     wgt_pages/page_settings.ui \
     wgt_pages/page_welcomescreen.ui \
     wgt_pages/dialog_property.ui
-
-
-<<<<<<< HEAD
-=======
-FORMS    += mainwindow.ui \
->>>>>>> d801e70308e2c00d02373f212cefcf412e8540a9
