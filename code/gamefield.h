@@ -4,14 +4,14 @@
 #include <QTimer>
 #include "snake.h"
 
-class GameField
+class GameController
 {
     Q_OBJECT
 public:
-    GameField();
+    GameController();
     enum ObjectType{fSnake,fWall,fBonus};
-
-
+    const QVector<QVector<ObjectType>>& getField();
+    void startGame();
 public slots:
     void fieldSize(int x, int y);
     void fieldSettings(int type, int speed);

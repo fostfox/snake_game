@@ -1,11 +1,41 @@
 #include "gamefield.h"
 
-GameField::GameField()
+GameController::GameController()
 {
 
 }
 
-void GameField::fieldSize(int x, int y)
+const QVector<QVector<GameController::ObjectType> >& GameController::getField()
+{
+    return field;
+}
+
+void GameController::startGame()
+{
+    snake=new Snake(fieldWidth, fieldHeight);
+    if(gameType==0){
+        for(int i(0);i<fieldWidth;i++){
+            for(int j(0);j<fieldHeight;j++){
+                if(i==0 || j==0 ||i==(fieldWidth-1)||j==(fieldHeight-1))
+                    field[i][j]=fWall;
+                else
+                    field[i][j]=fEmpty;
+            }
+        }
+    }else if(gameType==1){
+        for(int i(0);i<fieldWidth;i++){
+            for(int j(0);j<fieldHeight;j++){
+
+            }
+        }
+    }
+    updateTimer=new QTimer();
+    QObject::connect(updateTimer,SIGNAL(timeout()),this,SLOT(update()));
+    QObject::connect(updateTimer,SIGNAL(timeout()),this,SLOT(draw()));
+    updateTimer->start(1000/speed);
+}
+
+void GameController::fieldSize(int x, int y)
 {
    fieldWidth=x;
    fieldHeight=y;
@@ -15,13 +45,16 @@ void GameField::fieldSize(int x, int y)
    }
 }
 
-void GameField::fieldSettings(int type, int speed)
+void GameController::fieldSettings(int type, int speed)
 {
     gameType=type;
     snakeSpeed=speed;
-    snake=new Snake(fieldWidth, fieldHeight);
-    updateTimer=new QTimer();
-    updateTimer->start(1000/speed);
-    QObject::connect(updateTimer,SIGNAL(timeout()),this,SLOT(update()));
+}
+
+void GameController::update()
+{
+snake->move();
+vector<Point> coordSnake=snake->getCoordinates();
+
 }
 
