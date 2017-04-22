@@ -14,31 +14,13 @@ public:
     enum Direction { Up, Down, Left, Right };
 
     Snake();
-
     void increase();
+    void getCoordinates();
 
 public slots:
-    void move(){
-        switch(Direction){
-        case Up:{
-            (m_body[0].y)--;
-        }
-        case Down:{
-            (m_body[0].y)++;
-        }
-        case Left:{
-            (m_body[0].x)--;
-        }
-        case Right:{
-            (m_body[0].x)++;
-        }
-        }
-        for(int i(1);i<m_body.size();i++){
-            m_body[i]=m_body[i-1];
-        }
-    }
-
+    void move();
     void changeDirection(Direction newDir);
+
 
 private:
     Direction m_direction;
