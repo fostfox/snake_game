@@ -24,6 +24,7 @@ public slots:
 
 
 private:
+    int max_x,max_y;
     Direction m_direction;
     const int StartSize=3;
     QVector<Point> m_body;
