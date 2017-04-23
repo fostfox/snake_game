@@ -22,6 +22,9 @@ public:
     void fieldSettings(int type, int speed);
     int getScore();
     void keyPress(QKeyEvent *event);
+
+    // TODO: Добавить медоды pauseGame() \ stopGame()
+
 signals:
     void draw();
     void gameOver();

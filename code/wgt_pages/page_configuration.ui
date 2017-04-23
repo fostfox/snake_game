@@ -32,10 +32,10 @@
     <string>New game settings</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pushButton_menu">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>20</x>
      <y>30</y>
      <width>75</width>
      <height>23</height>
@@ -73,12 +73,15 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QSlider" name="horizontalSlider">
+     <widget class="QSlider" name="hSlider_speed">
       <property name="minimum">
-       <number>1</number>
+       <number>6</number>
       </property>
       <property name="maximum">
-       <number>5</number>
+       <number>40</number>
+      </property>
+      <property name="singleStep">
+       <number>2</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -93,7 +96,7 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="comboBox_gameMode">
       <item>
        <property name="text">
         <string>Free</string>
@@ -114,7 +117,7 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="comboBox_fieldSize">
       <item>
        <property name="text">
         <string>32×18</string>
@@ -134,10 +137,10 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_startGame">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>190</x>
      <y>240</y>
      <width>75</width>
      <height>23</height>

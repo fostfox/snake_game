@@ -88,11 +88,9 @@ void GameController::update()
         }
         int bonus=rand()%emptyElements.size();
         field[emptyElements[bonus].x][emptyElements[bonus].y]=fBonus;
-        qDebug() << "GameController::update() in if block";
         pBonus = Point(emptyElements[bonus].x, emptyElements[bonus].y);
         bonusExist=true;
     } else {
-        qDebug() << "GameController::update() in else block";
         field[pBonus.x][pBonus.y] = fBonus;
     }
 
@@ -122,18 +120,22 @@ void GameController::update()
 void GameController::keyPress(QKeyEvent *event){
 int key=event->key();
 switch(key){
-    case Qt::Key_W:{
+    case Qt::Key_W :
+    case Qt::Key_Up : {
         snake->changeDirection(Up);
         break;
     }
-    case Qt::Key_S:{
+    case Qt::Key_S:
+    case Qt::Key_Down:{
         snake->changeDirection(Down);
         break;
     }
-    case Qt::Key_A:{
+    case Qt::Key_A:
+    case Qt::Key_Left:{
         snake->changeDirection(Left);
         break;
     }
+    case Qt::Key_Right:
     case Qt::Key_D:{
         snake->changeDirection(Right);
         break;

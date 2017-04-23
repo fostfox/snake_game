@@ -11,6 +11,9 @@ class page_settings : public QWidget
 {
     Q_OBJECT
 
+signals:
+    void button_menu_pressed();
+
 public:
     explicit page_settings(QWidget *parent = 0);
     ~page_settings();

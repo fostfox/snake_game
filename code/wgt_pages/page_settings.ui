@@ -65,11 +65,11 @@
     <string>Game settings</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_menu">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>60</y>
+     <x>20</x>
+     <y>40</y>
      <width>75</width>
      <height>23</height>
     </rect>
