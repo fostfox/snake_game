@@ -59,3 +59,6 @@ FORMS    += mainwindow.ui \
     wgt_pages/page_settings.ui \
     wgt_pages/page_welcomescreen.ui \
     wgt_pages/dialog_property.ui
+
+RESOURCES += \
+    resources.qrc

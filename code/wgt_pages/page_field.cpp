@@ -6,6 +6,8 @@ page_field::page_field(QWidget *parent) :
     ui(new Ui::page_field)
 {
     ui->setupUi(this);
+
+    connect(ui->pushButton_menu, SIGNAL(clicked()), SIGNAL(button_menu_pressed()));
 }
 
 page_field::~page_field()

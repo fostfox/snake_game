@@ -25,10 +25,14 @@ public:
 
     QSize getFrameFieldSize() const;
     void setFrameFieldSize(const QSize& size);
-signals:
+
+signals: 
+    void button_menu_pressed();
     void pressKey(int);
+
 private:
     Ui::page_field *ui;
+
 private slots:
     void on_pushButton_menu_clicked();
 };

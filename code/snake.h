@@ -29,7 +29,7 @@ public slots:
 private:
     int max_x,max_y;
     Direction m_direction;
-    const int StartSize=3;
+    const int StartSize=3; /// TODO: Если размер превышает половину ширины поля - ОШИБКА
     QVector<Point> m_body;
 };
 

@@ -13,10 +13,10 @@ DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fie
 
     //загружаем картинки
 
-    ,imgEmpty(QPixmap("C:/Qt/Projects/Game_snake/code/img/empty.png"))
-    ,imgSnake(QPixmap("C:/Qt/Projects/Game_snake/code/img/snakeBody.png"))
-    ,imgBonus(QPixmap("C:/Qt/Projects/Game_snake/code/img/bonus1.png"))
-    ,imgWall(QPixmap("C:/Qt/Projects/Game_snake/code/img/wall.png"))
+    ,imgEmpty(QPixmap(":/img/page_field/empty.png"))
+    ,imgSnake(QPixmap(":/img/page_field/snakeBody.png"))
+    ,imgBonus(QPixmap(":/img/page_field/bonus1.png"))
+    ,imgWall(QPixmap(":/img/page_field/wall.png"))
 
 {
     ///При получении сигнала draw необходимо перерисовать поле
@@ -72,17 +72,17 @@ void DrawFieldManager::updateField()
         }
     }
 
-   qDebug() << "Lapse: " << count++ << " ----------------------";
+   //qDebug() << "Lapse: " << count++ << " ----------------------";
 
-    for (int i = 0; i < m_fieldSize.width(); ++i) {
-        for (int j = 0; j < m_fieldSize.height(); ++j) {
-            switch (objFields[i][j]) {
+    //for (int i = 0; i < m_fieldSize.width(); ++i) {
+    //    for (int j = 0; j < m_fieldSize.height(); ++j) {
+    //        switch (objFields[i][j]) {
             //case GameController::fEmpty : qDebug() << "fEmpty"<< i << " " << j; break;
             //case GameController::fSnake : qDebug() << "fSnake" << i << " " << j; break;
-            case GameController::fBonus : qDebug() << "fBonus" << i << " " << j; break;
+            //case GameController::fBonus : qDebug() << "fBonus" << i << " " << j; break;
             //case GameController::fWall  : qDebug() << "fWall" << i << " " << j;  break;
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 
 }
