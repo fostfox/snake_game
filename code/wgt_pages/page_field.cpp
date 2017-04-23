@@ -34,6 +34,7 @@ QSize page_field::getFrameFieldSize() const
     return ui->frame_field->minimumSize();
 }
 
+
 void page_field::setFrameFieldSize(const QSize &size)
 {
     ui->frame_field->setFixedSize(size);

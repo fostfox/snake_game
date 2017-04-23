@@ -80,15 +80,19 @@ void GameController::update()
         QVector<Point> emptyElements;
         for(int i(0);i<fieldWidth;i++){
             for(int j(0);j<fieldHeight;j++){
-                if(field[i][j]==fEmpty)
+                if(field[i][j]==fEmpty && coordSnake[0].x != i && coordSnake[0].y != j) {
                     emptyElements.push_back(Point(i,j));
+
+                }
             }
         }
         int bonus=rand()%emptyElements.size();
         field[emptyElements[bonus].x][emptyElements[bonus].y]=fBonus;
+        qDebug() << "GameController::update() in if block";
         pBonus = Point(emptyElements[bonus].x, emptyElements[bonus].y);
         bonusExist=true;
     } else {
+        qDebug() << "GameController::update() in else block";
         field[pBonus.x][pBonus.y] = fBonus;
     }
 

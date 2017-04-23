@@ -21,15 +21,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //контроллер игры
     m_gameController = new GameController(this);
-    m_gameController->setFieldSize(32, 18);
-    m_gameController->fieldSettings(1, 30);
+    m_gameController->setFieldSize(16, 9);
+    m_gameController->fieldSettings(1, 5);
 
 
     //отрисовщик поля
     m_drawFieldManager = new DrawFieldManager(
                 m_page_field,
                 m_gameController,
-                QSize(32, 18),
+                QSize(16, 9),
                 this);
 
     //ЗаПуСк ИгРы!

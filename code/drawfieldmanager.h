@@ -31,9 +31,7 @@ private:
     GameController* m_gameController;
     page_field* m_page_field;
     QSize m_fieldSize;      // размер поля, пример: 30*20
-    double m_boxSize;       // размер клетки (квадрата) на поле
-
-    QFrame* m_gameField ;   // игровое поле для отрисовки
+    int m_boxSize;       // размер клетки (квадрата) на поле
 
     int count;
 };
