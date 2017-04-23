@@ -4,6 +4,7 @@ GameController::GameController(QWidget *parent) :
 QWidget(parent)
 {
     bonusExist=false;
+    score=0;
 }
 
 //Метод для получения игрвого поля
@@ -114,25 +115,27 @@ void GameController::update()
 }
 
 //Отслеживаем нажатие клавиш по смене направления
-void GameController::keyPressEvent(QKeyEvent *event){
+void GameController::keyPress(QKeyEvent *event){
 int key=event->key();
 switch(key){
-    case Qt::Key_Up:{
+    case Qt::Key_W:{
         snake->changeDirection(Up);
         break;
     }
-    case Qt::Key_Down:{
+    case Qt::Key_S:{
         snake->changeDirection(Down);
         break;
     }
-    case Qt::Key_Left:{
+    case Qt::Key_A:{
         snake->changeDirection(Left);
         break;
     }
-    case Qt::Key_Right:{
+    case Qt::Key_D:{
         snake->changeDirection(Right);
         break;
     }
+    default:
+    break;
 }
 }
 

@@ -15,12 +15,13 @@ page_field::~page_field()
 
 int page_field::getScore() const
 {
-    return ui->line_score->text().toInt();
+    return ui->score->text().toInt();
+
 }
 
 void page_field::setScore(int s)
 {
-    ui->line_score->setText(QString::number(s));
+   ui->score->setText(QString::number(s));
 }
 
 QFrame *page_field::getGameField()

@@ -18,7 +18,6 @@ class Snake : public QObject
     Q_OBJECT
 
 public:
-
     Snake(int p_x, int p_y);
     void increase();
     const QVector<Point>& getCoordinates() const;
@@ -26,7 +25,6 @@ public:
 public slots:
     void move();
     void changeDirection(Direction newDir);
-
 
 private:
     int max_x,max_y;

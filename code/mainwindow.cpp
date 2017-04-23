@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QSize>
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -21,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //контроллер игры
     m_gameController = new GameController(this);
     m_gameController->setFieldSize(32, 18);
-    m_gameController->fieldSettings(1, 10);
+    m_gameController->fieldSettings(1, 30);
 
 
     //отрисовщик поля
@@ -30,7 +31,6 @@ MainWindow::MainWindow(QWidget *parent) :
                 m_gameController,
                 QSize(32, 18),
                 this);
-
 
     //ЗаПуСк ИгРы!
     m_gameController->startGame();
@@ -41,4 +41,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    m_gameController->keyPress(event);
 }

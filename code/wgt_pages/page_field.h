@@ -5,6 +5,7 @@
 #include <QFrame>
 #include <QString>
 #include <QSize>
+#include <QKeyEvent>
 
 namespace Ui {
 class page_field;
@@ -24,7 +25,8 @@ public:
 
     QSize getFrameFieldSize() const;
     void setFrameFieldSize(const QSize& size);
-
+signals:
+    void pressKey(int);
 private:
     Ui::page_field *ui;
 private slots:

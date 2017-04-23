@@ -21,13 +21,12 @@ public:
     void setFieldSize(int x, int y);
     void fieldSettings(int type, int speed);
     int getScore();
+    void keyPress(QKeyEvent *event);
 signals:
     void draw();
     void gameOver();
 private slots:
     void update();
-protected:
-   virtual void keyPressEvent(QKeyEvent *event);
 private:
     QVector<QVector<ObjectType>> field;
     bool bonusExist;
@@ -35,7 +34,6 @@ private:
     int fieldWidth;
     int fieldHeight;
     Snake *snake;
-    //Bonus *bonus;
     int score;
     int gameType;
     int snakeSpeed;

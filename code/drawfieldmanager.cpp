@@ -11,10 +11,10 @@ DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fie
     , count(0)
 
     //загружаем картинки
-    ,imgEmpty(QPixmap("C:/Qt/Projects/Game_snake/code/img/empty.png"))
-    ,imgSnake(QPixmap("C:/Qt/Projects/Game_snake/code/img/snakeBody.png"))
-    ,imgBonus(QPixmap("C:/Qt/Projects/Game_snake/code/img/bonus1.png"))
-    ,imgWall(QPixmap("C:/Qt/Projects/Game_snake/code/img/wall.png"))
+    ,imgEmpty(QPixmap("D:/Qt_HomeWorks/HW3_Snake/code/img/empty.png"))
+    ,imgSnake(QPixmap("D:/Qt_HomeWorks/HW3_Snake/code/img/snakeBody.png"))
+    ,imgBonus(QPixmap("D:/Qt_HomeWorks/HW3_Snake/code/img/bonus1.png"))
+    ,imgWall(QPixmap("D:/Qt_HomeWorks/HW3_Snake/code/img/wall.png"))
 {
     m_gameField = m_page_field->getGameField();
     ///При получении сигнала draw необходимо перерисовать поле
@@ -48,7 +48,6 @@ DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fie
 void DrawFieldManager::updateField()
 {
     //if (count++ > 3) return;
-
     //int newScore = m_gameController->getScore();
     //m_page_field->setScore(newScore);
 
