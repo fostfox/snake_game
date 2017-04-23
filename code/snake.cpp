@@ -18,11 +18,15 @@ const QVector<Point>& Snake::getCoordinates() const
 }
 
 void Snake::move(){
+    for(int i(m_body.size()-1); i > 0; i--){
+        m_body[i]=m_body[i-1];
+    }
+
     switch(m_direction){
     case Up:{
         (m_body[0].y)--;
         if(m_body[0].y<0)
-            m_body[0].y=max_y;
+            m_body[0].y=max_y-1;
         break;
     }
     case Down:{
@@ -34,7 +38,7 @@ void Snake::move(){
     case Left:{
         (m_body[0].x)--;
         if(m_body[0].x<0)
-            m_body[0].x=max_x;
+            m_body[0].x=max_x-1;
         break;
     }
     case Right:{
@@ -43,9 +47,6 @@ void Snake::move(){
             m_body[0].x=0;
         break;
     }
-    }
-    for(int i(1);i<m_body.size();i++){
-        m_body[i]=m_body[i-1];
     }
 }
 

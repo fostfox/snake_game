@@ -16,7 +16,7 @@ public:
     /* Передаем в класс DrawFieldManager widget_игрового_поля и
      * GameController для получения информации об игре
     */
-    DrawFieldManager(page_field *gf, GameController *gc, QSize fieldSize);
+    DrawFieldManager(page_field *gf, GameController *gc, QSize fieldSize, QObject* parent = 0);
 
 public slots:
     void updateField();
@@ -26,7 +26,7 @@ private:
     QPixmap imgSnake;
     QPixmap imgBonus;
     QPixmap imgWall;
-    QVector<QLabel*> imgField; // массив картинок
+    QVector<QVector<QLabel*> > imgField; // массив картинок
 
     GameController* m_gameController;
     page_field* m_page_field;
@@ -34,4 +34,7 @@ private:
     double m_boxSize;       // размер клетки (квадрата) на поле
 
     QFrame* m_gameField ;   // игровое поле для отрисовки
+
+    int count;
 };
+

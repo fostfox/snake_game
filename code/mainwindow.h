@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "gamefield.h"
+#include "drawfieldmanager.h"
+
+#include "wgt_pages/page_field.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +21,14 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    //страницы
+    page_field* m_page_field;
+
+    //
+    GameController* m_gameController;
+    DrawFieldManager* m_drawFieldManager;
+
 };
 
 #endif // MAINWINDOW_H

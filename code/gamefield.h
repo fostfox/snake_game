@@ -8,6 +8,8 @@
 #include <QWidget>
 #include <QKeyEvent>
 
+#include <QDebug>
+
 class GameController: public QWidget
 {
     Q_OBJECT
@@ -29,6 +31,7 @@ protected:
 private:
     QVector<QVector<ObjectType>> field;
     bool bonusExist;
+    Point pBonus;
     int fieldWidth;
     int fieldHeight;
     Snake *snake;

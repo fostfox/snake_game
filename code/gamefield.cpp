@@ -21,7 +21,7 @@ void GameController::startGame()
 
     //Создаем таймер и конектим его с интервалом вычеслинным относительно скорости
     updateTimer=new QTimer();
-    QObject::connect(updateTimer,SIGNAL(timeout()),this,SLOT(update()));
+    QObject::connect(updateTimer,SIGNAL(timeout()),SLOT(update()));
     updateTimer->start(1000/snakeSpeed);
 }
 
@@ -31,7 +31,7 @@ void GameController::setFieldSize(int x, int y)
    fieldWidth=x;
    fieldHeight=y;
    field.resize(fieldWidth);
-   for(auto it:field){
+   for(auto& it : field){
        it.resize(fieldHeight);
    }
 }
@@ -85,7 +85,10 @@ void GameController::update()
         }
         int bonus=rand()%emptyElements.size();
         field[emptyElements[bonus].x][emptyElements[bonus].y]=fBonus;
+        pBonus = Point(emptyElements[bonus].x, emptyElements[bonus].y);
         bonusExist=true;
+    } else {
+        field[pBonus.x][pBonus.y] = fBonus;
     }
 
     //Проверяем на столкновение со стеной

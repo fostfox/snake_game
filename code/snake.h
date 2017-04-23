@@ -2,6 +2,7 @@
 #define SNAKE_H
 #include <QVector>
 #include <QObject>
+#include <QDebug>
 
 enum Direction { Up, Down, Left, Right };
 
