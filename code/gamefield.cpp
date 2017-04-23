@@ -22,7 +22,7 @@ void GameController::startGame()
     //Создаем таймер и конектим его с интервалом вычеслинным относительно скорости
     updateTimer=new QTimer();
     QObject::connect(updateTimer,SIGNAL(timeout()),this,SLOT(update()));
-    updateTimer->start(1000/speed);
+    updateTimer->start(1000/snakeSpeed);
 }
 
 //Метод для получения размера с окна конфигураций
@@ -72,11 +72,11 @@ void GameController::update()
         }
     }
     //Получаем данные о змейке
-    vector<Point> coordSnake=snake->getCoordinates();
+    QVector<Point> coordSnake=snake->getCoordinates();
 
     //Рандомим положение бонусов
     if(!bonusExist){
-        vector<Point> emptyElements;
+        QVector<Point> emptyElements;
         for(int i(0);i<fieldWidth;i++){
             for(int j(0);j<fieldHeight;j++){
                 if(field[i][j]==fEmpty)
@@ -84,7 +84,7 @@ void GameController::update()
             }
         }
         int bonus=rand()%emptyElements.size();
-        field[emptyElements[0].x][emptyElements[0].y]=fBonus;
+        field[emptyElements[bonus].x][emptyElements[bonus].y]=fBonus;
         bonusExist=true;
     }
 

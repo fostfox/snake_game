@@ -12,13 +12,13 @@ void Snake::increase(){
     m_body.push_back(m_body[m_body.size()-1]);
 }
 
-const vector<Point>& Snake::getCoordinates()
+const QVector<Point>& Snake::getCoordinates() const
 {
     return m_body;
 }
 
 void Snake::move(){
-    switch(Direction){
+    switch(m_direction){
     case Up:{
         (m_body[0].y)--;
         if(m_body[0].y<0)

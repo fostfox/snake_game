@@ -20,7 +20,7 @@ int page_field::getScore() const
 
 void page_field::setScore(int s)
 {
-    ui->line_score->setText(s);
+    ui->line_score->setText(QString::number(s));
 }
 
 QFrame *page_field::getGameField()
@@ -28,7 +28,7 @@ QFrame *page_field::getGameField()
     return ui->frame_field;
 }
 
-QSize page_field::getFieldSize() const
+QSize page_field::getFrameFieldSize() const
 {
     return ui->frame_field->minimumSize();
 }

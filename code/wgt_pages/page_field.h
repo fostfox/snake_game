@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QFrame>
+#include <QString>
+#include <QSize>
 
 namespace Ui {
 class page_field;

@@ -1,6 +1,4 @@
 #pragma once
-#include "gamefield.h"
-#include "wgt_pages/page_field.h" ///???
 #include <QObject>
 #include <QVector>
 #include <QFrame>
@@ -8,14 +6,17 @@
 #include <QPixmap>
 #include <QLabel>
 
-class DrawFieldManager
+#include "gamefield.h"
+#include "wgt_pages/page_field.h" ///???
+
+class DrawFieldManager : public QObject
 {
     Q_OBJECT
 public:
     /* Передаем в класс DrawFieldManager widget_игрового_поля и
      * GameController для получения информации об игре
     */
-    DrawFieldManager(const page_field* gf, const GameController* gc, QSize fieldSize);
+    DrawFieldManager(page_field *gf, GameController *gc, QSize fieldSize);
 
 public slots:
     void updateField();

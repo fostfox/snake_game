@@ -6,6 +6,7 @@
 #include <random>
 #include <ctime>
 #include <QWidget>
+#include <QKeyEvent>
 
 class GameController: public QWidget
 {

@@ -1,8 +1,8 @@
 #include "drawfieldmanager.h"
 #include <QLabel>
 
-DrawFieldManager::DrawFieldManager(const page_field* gf, const GameController *gc, QSize fieldSize)
-    : m_gameField(gf)
+DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fieldSize)
+    : m_page_field(gf)
     , m_gameController(gc)
     , m_fieldSize(fieldSize)
 
@@ -27,7 +27,6 @@ DrawFieldManager::DrawFieldManager(const page_field* gf, const GameController *g
 
     //--------------------------------------------------------------------------
     //создаем массив картинок для поля
-    int numberOfFields = m_fieldSize.height() * m_fieldSize.width();
     for (int i = 0; i < m_fieldSize.width(); ++i) {
         for (int j = 0; j < m_fieldSize.height(); ++j) {
             QLabel* plbl = new QLabel(m_gameField);
@@ -50,7 +49,7 @@ void DrawFieldManager::updateField()
     ///Перерисовка поля
     for (int i = 0; i < m_fieldSize.width(); ++i) {
         for (int j = 0; j < m_fieldSize.height(); ++j) {
-            switch (objFields) {
+            switch (objFields[i][j]) {
             case GameController::fEmpty : imgField[i*j]->setPixmap(imgEmpty); break;
             case GameController::fSnake : imgField[i*j]->setPixmap(imgSnake); break;
             case GameController::fBonus : imgField[i*j]->setPixmap(imgBonus); break;
