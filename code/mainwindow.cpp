@@ -52,7 +52,6 @@ void MainWindow::loadPage_menu()
 
 void MainWindow::loadPage_field()
 {
-
     //получаем необходимые параметры настройки игры от страницы
     QSize fieldSize = m_page_configuration->getFieldSize();
     int gameMode = m_page_configuration->getGameMode();
@@ -64,14 +63,12 @@ void MainWindow::loadPage_field()
 
     /// TODO: код ниже искоючительно для тестирования, ПЕРЕДЕЛАТЬ
     //контроллер игры
-    m_gameController = new GameController(this);
-    m_gameController->setFieldSize(fieldSize.width(), fieldSize.height());
-    m_gameController->fieldSettings(gameMode, gameSpeed);;
+    m_gameController = new GameController(fieldSize,gameMode,gameSpeed,0,this);
 
     m_drawFieldManager = new DrawFieldManager(m_page_field, m_gameController, fieldSize, this);
 
     //ЗаПуСк ИгРы!
-
+    m_gameController->newGame();
     m_gameController->startGame();
 
     // соединение кнопок на страницах с переключением страниц

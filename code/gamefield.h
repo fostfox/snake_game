@@ -7,22 +7,28 @@
 #include <ctime>
 #include <QWidget>
 #include <QKeyEvent>
-
+#include <QSize>
 #include <QDebug>
 
 class GameController: public QWidget
 {
     Q_OBJECT
 public:
-    GameController(QWidget *parent = 0);
+    GameController(
+    QSize sizeField_
+    ,int type_
+    ,int speed_
+    ,int score_
+    ,QWidget *parent = 0
+    );
     enum ObjectType{fEmpty,fSnake,fWall,fBonus};
     const QVector<QVector<ObjectType>>& getField();
     void startGame();
-    void setFieldSize(int x, int y);
-    void fieldSettings(int type, int speed);
+    void newGame();
+    void resumeGame(QVector<QPoint> snake_, int direction_);
     int getScore();
     void keyPress(QKeyEvent *event);
-
+    enum Keys{ArrowUp=328,W=17,ArrowDown=336,S=31,ArrowRight=333,D=32,ArrowLeft=331,A=30};
     // TODO: Добавить медоды pauseGame() \ stopGame()
 
 signals:
@@ -33,7 +39,7 @@ private slots:
 private:
     QVector<QVector<ObjectType>> field;
     bool bonusExist;
-    Point pBonus;
+    QPoint pBonus;
     int fieldWidth;
     int fieldHeight;
     Snake *snake;

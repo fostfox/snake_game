@@ -1,10 +1,18 @@
 #include "gamefield.h"
 //Конструктор по умолчанию
-GameController::GameController(QWidget *parent) :
-QWidget(parent)
+GameController::GameController(QSize sizeField_ ,int type_  ,int speed_,int score_,QWidget *parent) :
+    QWidget(parent)
+  ,bonusExist(false)
+  ,fieldWidth(sizeField_.width())
+  ,fieldHeight(sizeField_.height())
+  ,score(score_)
+  ,gameType(type_)
+  ,snakeSpeed(speed_)
 {
-    bonusExist=false;
-    score=0;
+    field.resize(fieldWidth);
+    for(auto& it : field){
+        it.resize(fieldHeight);
+    }
 }
 
 //Метод для получения игрвого поля
@@ -16,33 +24,25 @@ const QVector<QVector<GameController::ObjectType> >& GameController::getField()
 //Метод для начала игры
 void GameController::startGame()
 {
-    //Создаем змейку
-    snake=new Snake(fieldWidth, fieldHeight);
     srand(time(NULL));
-
     //Создаем таймер и конектим его с интервалом вычеслинным относительно скорости
     updateTimer=new QTimer();
     QObject::connect(updateTimer,SIGNAL(timeout()),SLOT(update()));
     updateTimer->start(1000/snakeSpeed);
 }
 
-//Метод для получения размера с окна конфигураций
-void GameController::setFieldSize(int x, int y)
+void GameController::newGame()
 {
-   fieldWidth=x;
-   fieldHeight=y;
-   field.resize(fieldWidth);
-   for(auto& it : field){
-       it.resize(fieldHeight);
-   }
+    //Создаем змейку
+    snake=new Snake(fieldWidth, fieldHeight);
 }
 
-//Метод для получения типа игры и скорости змейки с окна конфигураций
-void GameController::fieldSettings(int type, int speed)
+void GameController::resumeGame(QVector<QPoint> snake_, int direction_)
 {
-    gameType=type;
-    snakeSpeed=speed;
+    //Создаем змейку
+    snake=new Snake(snake_, direction_,fieldWidth, fieldHeight);
 }
+
 
 //Метод возвращающий счет
 int GameController::getScore()
@@ -53,8 +53,25 @@ int GameController::getScore()
 //Метод для обновления информации об состоянии игры
 void GameController::update()
 {
-    //Перемещение
-    snake->move();
+    //Получаем данные о змейке
+    QVector<QPoint> coordSnake=snake->getCoordinates();
+
+    //Проверяем на столкновение с самим собой
+    if(field[coordSnake[0].x()][coordSnake[0].y()]==fSnake){
+        emit gameOver();
+    }
+    //Проверяем на столкновение со стеной
+    if( field[coordSnake[0].x()][coordSnake[0].y()]==fWall){
+        emit gameOver();
+    }
+
+    //Проверяем на нахождение бонуса
+    if(field[coordSnake[0].x()][coordSnake[0].y()]==fBonus ){
+        score++;
+        snake->increase();
+        bonusExist=false;
+    }
+
     //Заполняем поле значениями в зависимости от режима игры
     if(gameType==0){    //Аркадный
         for(int i(0);i<fieldWidth;i++){
@@ -72,76 +89,65 @@ void GameController::update()
             }
         }
     }
-    //Получаем данные о змейке
-    QVector<Point> coordSnake=snake->getCoordinates();
+
+    //Задаем значения змейки на поле
+    for(int i(0);i<coordSnake.size();i++){
+        field[coordSnake[i].x()][coordSnake[i].y()]=fSnake;
+    }
 
     //Рандомим положение бонусов
     if(!bonusExist){
-        QVector<Point> emptyElements;
+        //Возможно потом оптимизируется
+        QVector<QPoint> emptyElements;
         for(int i(0);i<fieldWidth;i++){
             for(int j(0);j<fieldHeight;j++){
-                if(field[i][j]==fEmpty && coordSnake[0].x != i && coordSnake[0].y != j) {
-                    emptyElements.push_back(Point(i,j));
-
+                if(field[i][j]==fEmpty ) {
+                    emptyElements.push_back(QPoint(i,j));
                 }
             }
         }
         int bonus=rand()%emptyElements.size();
-        field[emptyElements[bonus].x][emptyElements[bonus].y]=fBonus;
-        pBonus = Point(emptyElements[bonus].x, emptyElements[bonus].y);
+        field[emptyElements[bonus].x()][emptyElements[bonus].y()]=fBonus;
+        pBonus = QPoint(emptyElements[bonus].x(), emptyElements[bonus].y());
         bonusExist=true;
-    } else {
-        field[pBonus.x][pBonus.y] = fBonus;
+    }else{
+        field[pBonus.x()][pBonus.y()] = fBonus;
     }
 
-    //Проверяем на столкновение со стеной
-    if(field[coordSnake[0].x][coordSnake[0].y]==fSnake ||
-            field[coordSnake[0].x][coordSnake[0].y]==fWall){
-        emit gameOver();
-    }
+    //Перемещение
+    snake->move();
 
-    //Проверяем на нахождение бонуса
-    if(field[coordSnake[0].x][coordSnake[0].y]==fBonus ){
-        score++;
-        snake->increase();
-        bonusExist=false;
-    }
-
-    //Задаем значения змейки на поле
-    for(int i(0);i<coordSnake.size();i++){
-        field[coordSnake[i].x][coordSnake[i].y]=fSnake;
-    }
-
-
+    //На отрисовку Богдану
     emit draw();
 }
 
+
 //Отслеживаем нажатие клавиш по смене направления
 void GameController::keyPress(QKeyEvent *event){
-int key=event->key();
-switch(key){
-    case Qt::Key_W :
-    case Qt::Key_Up : {
+    int key=event->nativeScanCode();
+    switch(key){
+    case ArrowUp:
+    case W: {
         snake->changeDirection(Up);
         break;
     }
-    case Qt::Key_S:
-    case Qt::Key_Down:{
+    case ArrowDown:
+    case S:{
         snake->changeDirection(Down);
         break;
     }
-    case Qt::Key_A:
-    case Qt::Key_Left:{
+    case ArrowLeft:
+    case A:{
         snake->changeDirection(Left);
         break;
     }
-    case Qt::Key_Right:
-    case Qt::Key_D:{
+    case ArrowRight:
+    case D:{
         snake->changeDirection(Right);
         break;
     }
     default:
-    break;
-}
+        break;
+    }
 }
 

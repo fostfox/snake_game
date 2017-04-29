@@ -3,6 +3,7 @@
 #include <QVector>
 #include <QObject>
 #include <QDebug>
+#include <QPoint>
 
 enum Direction { Up, Down, Left, Right };
 
@@ -19,8 +20,9 @@ class Snake : public QObject
 
 public:
     Snake(int p_x, int p_y);
+    Snake(const QVector<QPoint>& snake_, int direction_, int p_x, int p_y);
     void increase();
-    const QVector<Point>& getCoordinates() const;
+    const QVector<QPoint>& getCoordinates() const;
 
 public slots:
     void move();
@@ -28,9 +30,10 @@ public slots:
 
 private:
     int max_x,max_y;
+    bool readyToInput;
     Direction m_direction;
     const int StartSize=3; /// TODO: Если размер превышает половину ширины поля - ОШИБКА
-    QVector<Point> m_body;
+    QVector<QPoint> m_body;
 };
 
 #endif // SNAKE_H
