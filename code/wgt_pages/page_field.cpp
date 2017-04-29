@@ -114,7 +114,8 @@ void page_field::saveGame()
 void page_field::exitGame()
 {
     clearSetting();
-    emit button_menu_pressed();
+    emit destroy();
+    //emit button_menu_pressed();   //DELETE
 }
 
 void page_field::updateField()

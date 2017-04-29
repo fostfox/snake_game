@@ -30,6 +30,8 @@ public slots:
     //void loadPage_highscores();
     //voiloadpageSettings);
     void loadPage_settings();
+    //
+    void destroyGameField();
     //void loadPage_welcomescreen();
 
 public:

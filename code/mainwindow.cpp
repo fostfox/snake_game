@@ -29,7 +29,9 @@ void MainWindow::showAndSetupResolution(int w, int h)
 void MainWindow::loadPage_dialogProperty()
 {
     dialog_property* dialog = new dialog_property(this);
+
     dialog->show();
+
 
     connect(dialog, SIGNAL(button_setResolution_pressed(int, int))
             , SLOT(showAndSetupResolution(int, int)));
@@ -76,10 +78,11 @@ void MainWindow::loadPage_field_new()
     /// TODO: придумать, как производить инициализацию один раз
     m_page_field = new page_field(this);
     this->setCentralWidget(m_page_field);
-
+    m_page_field->setAttribute(Qt::WA_DeleteOnClose);
     m_page_field->launchNewGame(fieldSize, gameMode, gameSpeed);
 
     // соединение кнопок на страницах с переключением страниц
+    connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
 }
 
@@ -88,11 +91,19 @@ void MainWindow::loadPage_field_previos()
     /// TODO: придумать, как производить инициализацию один раз
     m_page_field = new page_field(this);
     this->setCentralWidget(m_page_field);
-
+    m_page_field->setAttribute(Qt::WA_DeleteOnClose);
     m_page_field->launchPreviousGame();
 
     // соединение кнопок на страницах с переключением страниц
+    connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
+}
+
+void MainWindow::destroyGameField()
+{
+    m_page_field->close();
+    m_page_field=nullptr;
+    loadPage_menu();
 }
 
 void MainWindow::loadPage_configuration()
@@ -116,13 +127,15 @@ void MainWindow::loadPage_settings()
     connect(m_page_settings, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
 }
 
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowFlags(Qt::SplashScreen);
-
+    this->setWindowFlags(Qt::SplashScreen | Qt::WindowStaysOnTopHint);
+    m_page_field=nullptr;
     //Открытие диалогового окна разрешения
     loadPage_dialogProperty();    
 }
