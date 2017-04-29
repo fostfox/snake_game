@@ -25,6 +25,7 @@ class page_field : public QWidget
 signals:
     void button_menu_pressed();
     void pressKey(int);
+    void destroy();
 
 public:
     explicit page_field(QWidget *parent = 0);
