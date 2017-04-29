@@ -4,8 +4,8 @@
 #include <QDebug>
 #include <QMainWindow>
 
-DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fieldSize, QObject *parent)
-    : m_page_field(gf)
+DrawFieldManager::DrawFieldManager(QWidget* gf, GameController *gc, QSize fieldSize, QObject *parent)
+    : m_gameField(gf)
     , m_gameController(gc)
     , m_fieldSize(fieldSize)
     , QObject(parent)
@@ -23,15 +23,13 @@ DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fie
     QObject::connect(m_gameController, SIGNAL(draw()), SLOT(updateField()));
 
     ///Изменяем размер поля
-    QSize page_fieldSize = dynamic_cast<QMainWindow*>(m_page_field->parent())->size();
-    m_page_field->setFrameFieldSize(page_fieldSize * 0.8);
+    m_gameField->setFixedSize(dynamic_cast<QMainWindow*>(gf->parent()->parent())->size() * 0.8);
 
     ///вычисляем размер клетки
-    m_boxSize = floor(m_page_field->getFrameFieldSize().height() / m_fieldSize.height());
+    m_boxSize = floor(m_gameField->minimumSize().height() / m_fieldSize.height());
 
     ///изменяем размер поля в виджете, убирая зазоры
-    QSize newFrameGameSize(m_boxSize*m_fieldSize.width(), m_boxSize*m_fieldSize.height());
-    m_page_field->setFrameFieldSize(newFrameGameSize);
+    m_gameField->setFixedSize(QSize(m_boxSize*m_fieldSize.width(), m_boxSize*m_fieldSize.height()));
 
 
     //--------------------------------------------------------------------------
@@ -39,7 +37,6 @@ DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fie
     for (int i = 0; i < m_fieldSize.width(); ++i) {
         QVector<QLabel*> temp;
         for (int j = 0; j < m_fieldSize.height(); ++j) {
-            QFrame* m_gameField = m_page_field->getGameField();
             QLabel* plbl = new QLabel(m_gameField);
             plbl->setPixmap(imgEmpty);
             plbl->setGeometry(i*m_boxSize, j*m_boxSize, m_boxSize, m_boxSize);
@@ -52,11 +49,7 @@ DrawFieldManager::DrawFieldManager(page_field* gf, GameController *gc, QSize fie
 }
 
 void DrawFieldManager::updateField()
-{
-    int newScore = m_gameController->getScore();
-    m_page_field->setScore(newScore);
-
-    ///Получение массива сущностей на поле
+{   ///Получение массива сущностей на поле
     const QVector<QVector<GameController::ObjectType> >& objFields = m_gameController->getField();
 
     ///Перерисовка поля

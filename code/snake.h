@@ -23,6 +23,7 @@ public:
     Snake(const QVector<QPoint>& snake_, int direction_, int p_x, int p_y);
     void increase();
     const QVector<QPoint>& getCoordinates() const;
+    int getDirection();
 
 public slots:
     void move();

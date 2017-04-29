@@ -1,4 +1,6 @@
 #include "gamefield.h"
+
+
 //Конструктор по умолчанию
 GameController::GameController(QSize sizeField_ ,int type_  ,int speed_,int score_,QWidget *parent) :
     QWidget(parent)
@@ -126,7 +128,7 @@ void GameController::update()
 void GameController::keyPress(QKeyEvent *event){
     int key=event->nativeScanCode();
     switch(key){
-    case ArrowUp:
+    case ArrowUp :
     case W: {
         snake->changeDirection(Up);
         break;
@@ -149,5 +151,30 @@ void GameController::keyPress(QKeyEvent *event){
     default:
         break;
     }
+}
+
+QSize GameController::getFieldSize() const
+{
+    return QSize(fieldWidth, fieldHeight);
+}
+
+int GameController::getGameMode() const
+{
+    return gameType;
+}
+
+int GameController::getGameSpeed() const
+{
+    return snakeSpeed;
+}
+
+QVector<QPoint> GameController::getSnake() const
+{
+    return snake->getCoordinates();
+}
+
+int GameController::getDirection() const
+{
+    return snake->getDirection();
 }
 

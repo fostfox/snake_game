@@ -22,6 +22,8 @@ public:
     explicit page_Menu(QWidget *parent = 0);
     ~page_Menu();
 
+    void button_continue_enebled(bool f = false);
+
 private:
     Ui::page_Menu *ui;
 };

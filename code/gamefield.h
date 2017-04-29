@@ -29,7 +29,13 @@ public:
     int getScore();
     void keyPress(QKeyEvent *event);
     enum Keys{ArrowUp=328,W=17,ArrowDown=336,S=31,ArrowRight=333,D=32,ArrowLeft=331,A=30};
-    // TODO: Добавить медоды pauseGame() \ stopGame()
+    // TODO: Добавить методы pauseGame() \ stopGame()
+
+    QSize getFieldSize() const;
+    int getGameMode() const;
+    int getGameSpeed() const;
+    QVector<QPoint> getSnake() const;
+    int getDirection() const;
 
 signals:
     void draw();

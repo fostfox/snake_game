@@ -18,3 +18,8 @@ page_Menu::~page_Menu()
 {
     delete ui;
 }
+
+void page_Menu::button_continue_enebled(bool f)
+{
+    ui->pushButton_continue->setEnabled(f);
+}
