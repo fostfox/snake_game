@@ -24,6 +24,11 @@ const QVector<QPoint>& Snake::getCoordinates() const
     return m_body;
 }
 
+int Snake::getDirection()
+{
+    return static_cast<int>(m_direction);
+}
+
 void Snake::move(){
     for(int i(m_body.size()-1); i > 0; i--){
         m_body[i]=m_body[i-1];

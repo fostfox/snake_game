@@ -6,8 +6,6 @@
 #include <QStyle>
 #include <QDesktopWidget>
 
-
-
 void MainWindow::showAndSetupResolution(int w, int h)
 {
     // установка разрешения экрана
@@ -40,17 +38,35 @@ void MainWindow::loadPage_dialogProperty()
 void MainWindow::loadPage_menu()
 {
     /// TODO: придумать, как производить инициализацию один раз
-
     m_page_menu = new page_Menu(this);
     this->setCentralWidget(m_page_menu);
 
     // соединение кнопок на страницах с переключением страниц
     connect(m_page_menu, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
-     connect(m_page_menu, SIGNAL(button_settings_pressed()), SLOT(loadPage_settings()));
+    connect(m_page_menu, SIGNAL(button_continue_pressed()), SLOT(loadPage_field_previos()));
+    connect(m_page_menu, SIGNAL(button_settings_pressed()), SLOT(loadPage_settings()));
     connect(m_page_menu, SIGNAL(button_exit_pressed()), SLOT(close()));
+
+
+    //Проверка на то, что есть предыдущая версия игры для загрузки
+    QSettings settings("MonckeyCo", "Snake");
+    settings.beginGroup("/field_settings");
+    if (!(settings.contains("/fieldSize")
+            && settings.contains("/gameType")
+            && settings.contains("/gameType")
+            && settings.contains("/speed")
+            && settings.contains("/snake")
+            && settings.contains("/direction")
+            && settings.contains("/score")
+            )){
+        m_page_menu->button_continue_enebled(false);
+    } else {
+        m_page_menu->button_continue_enebled(true);
+    }
+    settings.endGroup();
 }
 
-void MainWindow::loadPage_field()
+void MainWindow::loadPage_field_new()
 {
     //получаем необходимые параметры настройки игры от страницы
     QSize fieldSize = m_page_configuration->getFieldSize();
@@ -61,19 +77,22 @@ void MainWindow::loadPage_field()
     m_page_field = new page_field(this);
     this->setCentralWidget(m_page_field);
 
-    /// TODO: код ниже искоючительно для тестирования, ПЕРЕДЕЛАТЬ
-    //контроллер игры
-    m_gameController = new GameController(fieldSize,gameMode,gameSpeed,0,this);
-
-    m_drawFieldManager = new DrawFieldManager(m_page_field, m_gameController, fieldSize, this);
-
-    //ЗаПуСк ИгРы!
-    m_gameController->newGame();
-    m_gameController->startGame();
+    m_page_field->launchNewGame(fieldSize, gameMode, gameSpeed);
 
     // соединение кнопок на страницах с переключением страниц
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
-    connect(m_gameController, SIGNAL(gameOver()), SLOT(loadPage_menu()));
+}
+
+void MainWindow::loadPage_field_previos()
+{
+    /// TODO: придумать, как производить инициализацию один раз
+    m_page_field = new page_field(this);
+    this->setCentralWidget(m_page_field);
+
+    m_page_field->launchPreviousGame();
+
+    // соединение кнопок на страницах с переключением страниц
+    connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
 }
 
 void MainWindow::loadPage_configuration()
@@ -84,7 +103,7 @@ void MainWindow::loadPage_configuration()
 
 
 //    // соединение кнопок на страницах с переключением страниц
-   connect(m_page_configuration, SIGNAL(button_startGame_pressed()), SLOT(loadPage_field()));
+   connect(m_page_configuration, SIGNAL(button_startGame_pressed()), SLOT(loadPage_field_new()));
    connect(m_page_configuration, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
 }
 
@@ -104,9 +123,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowFlags(Qt::SplashScreen);
 
-
     //Открытие диалогового окна разрешения
-    loadPage_dialogProperty();
+    loadPage_dialogProperty();    
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (m_page_field){
+        m_page_field->keyPressEvent(event);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -114,7 +139,4 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *event)
-{
-    m_gameController->keyPress(event);
-}
+
