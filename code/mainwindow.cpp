@@ -84,6 +84,7 @@ void MainWindow::loadPage_field_new()
     // соединение кнопок на страницах с переключением страниц
     connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
+    connect(m_page_field, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
 }
 
 void MainWindow::loadPage_field_previos()
@@ -97,6 +98,7 @@ void MainWindow::loadPage_field_previos()
     // соединение кнопок на страницах с переключением страниц
     connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
+    connect(m_page_field, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
 }
 
 void MainWindow::destroyGameField()

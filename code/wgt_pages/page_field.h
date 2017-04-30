@@ -25,6 +25,7 @@ class page_field : public QWidget
 
 signals:
     void button_menu_pressed();
+    void button_newGame_pressed();
     void pressKey(int);
     void destroy();
 
@@ -34,14 +35,6 @@ public:
 
     void launchNewGame(QSize fieldSize, int type, int speed);
     void launchPreviousGame();
-
-//    int getScore() const;
-//    void setScore(int s);
-//    QFrame* getGameField();
-
-//    QSize getFrameFieldSize() const;
-//    void setFrameFieldSize(const QSize& size);
-
 
     virtual void keyPressEvent(QKeyEvent *event);
 
@@ -62,6 +55,7 @@ private slots:
     void saveGame(); //Слот ля сохранения настроек игры и возврата в меню
     void exitGame(); //Слот, который вызывается после завершения игры
     void pauseGame();
+    void resumeGame();
     void updateField();
 };
 

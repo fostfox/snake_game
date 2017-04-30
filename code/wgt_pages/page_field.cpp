@@ -10,6 +10,18 @@ page_field::page_field(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->pushButton_menu, SIGNAL(clicked()), SLOT(pauseGame()));
+
+    //Создаем окно паузы
+    m_dialog_pause = new dialog_pause(this);
+    m_dialog_pause->setFixedSize(dynamic_cast<QWidget*>(this->parent())->size());
+    m_dialog_pause->repaint();
+
+    //m_dialog_pause->raise();
+    m_dialog_pause->hide();
+
+    connect(m_dialog_pause, SIGNAL(button_resume()), SLOT(resumeGame()));
+    connect(m_dialog_pause, SIGNAL(button_backmenu()), SLOT(saveGame()));
+    connect(m_dialog_pause, SIGNAL(button_retry()), SIGNAL(button_newGame_pressed()));
 }
 
 page_field::~page_field()
@@ -126,14 +138,15 @@ void page_field::exitGame()
 
 void page_field::pauseGame()
 {
-    if (!isPauseGame) {
-        m_dialog_pause = new dialog_pause(this);
-        m_dialog_pause->show();
+    m_dialog_pause->show();
+    m_gameController->pauseGame();
+}
 
-
-
-    }
-
+void page_field::resumeGame()
+{
+    m_dialog_pause->hide();
+    m_gameController->pauseGame();
+    this->setFocus();
 }
 
 void page_field::updateField()

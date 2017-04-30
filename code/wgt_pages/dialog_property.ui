@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>253</height>
+    <width>276</width>
+    <height>270</height>
    </rect>
   </property>
   <property name="palette">
@@ -82,7 +82,7 @@
     <rect>
      <x>60</x>
      <y>30</y>
-     <width>231</width>
+     <width>191</width>
      <height>91</height>
     </rect>
    </property>
@@ -102,7 +102,7 @@
      <x>40</x>
      <y>150</y>
      <width>174</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
