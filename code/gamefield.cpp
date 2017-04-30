@@ -39,10 +39,12 @@ void GameController::newGame()
     snake=new Snake(fieldWidth, fieldHeight);
 }
 
-void GameController::resumeGame(QVector<QPoint> snake_, int direction_)
+void GameController::resumeGame(QVector<QPoint> snake_, int direction_, QPoint posBonus_)
 {
     //Создаем змейку
     snake=new Snake(snake_, direction_,fieldWidth, fieldHeight);
+    pBonus=posBonus_;
+    bonusExist=true;
 }
 
 
@@ -68,7 +70,8 @@ void GameController::update()
     }
 
     //Проверяем на нахождение бонуса
-    if(field[coordSnake[0].x()][coordSnake[0].y()]==fBonus ){
+    if(field[coordSnake[0].x()][coordSnake[0].y()]==fBonus
+            ||field[coordSnake[1].x()][coordSnake[1].y()]==fBonus){
         score++;
         snake->increase();
         bonusExist=false;
@@ -171,6 +174,11 @@ int GameController::getGameSpeed() const
 QVector<QPoint> GameController::getSnake() const
 {
     return snake->getCoordinates();
+}
+
+QPoint GameController::getBonus() const
+{
+    return pBonus;
 }
 
 int GameController::getDirection() const

@@ -25,7 +25,7 @@ public:
     const QVector<QVector<ObjectType>>& getField();
     void startGame();
     void newGame();
-    void resumeGame(QVector<QPoint> snake_, int direction_);
+    void resumeGame(QVector<QPoint> snake_, int direction_, QPoint posBonus_);
     int getScore();
     void keyPress(QKeyEvent *event);
     enum Keys{ArrowUp=328,W=17,ArrowDown=336,S=31,ArrowRight=333,D=32,ArrowLeft=331,A=30};
@@ -35,6 +35,7 @@ public:
     int getGameMode() const;
     int getGameSpeed() const;
     QVector<QPoint> getSnake() const;
+    QPoint getBonus() const;
     int getDirection() const;
 
 signals:
