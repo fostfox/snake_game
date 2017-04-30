@@ -1,21 +1,21 @@
- <!DOCTYPE RCC><RCC version="1.0">
- <qresource>
-     <file>img/page_field/bonus1.png</file>
-     <file>img/page_field/bonus2.png</file>
-     <file>img/page_field/bonus3.png</file>
-     <file>img/page_field/empty.png</file>
-     <file>img/page_field/snakeBody.png</file>
-     <file>img/page_field/wall.png</file>
-
-     <file>img/page_menu/pushButton_continue_off.png</file>
-     <file>img/page_menu/pushButton_continue_on.png</file>
-     <file>img/page_menu/pushButton_exit_off.png</file>
-     <file>img/page_menu/pushButton_exit_on.png</file>
-     <file>img/page_menu/pushButton_highscores_off.png</file>
-     <file>img/page_menu/pushButton_highscores_on.png</file>
-     <file>img/page_menu/pushButton_newGame_off.png</file>
-     <file>img/page_menu/pushButton_newGame_on.png</file>
-     <file>img/page_menu/pushButton_settings_off.png</file>
-     <file>img/page_menu/pushButton_settings_on.png</file>
- </qresource>
- </RCC>
+<RCC>
+    <qresource prefix="/">
+        <file>img/page_field/bonus1.png</file>
+        <file>img/page_field/bonus2.png</file>
+        <file>img/page_field/bonus3.png</file>
+        <file>img/page_field/empty.png</file>
+        <file>img/page_field/snakeBody.png</file>
+        <file>img/page_field/wall.png</file>
+        <file>img/page_menu/pushButton_continue_off.png</file>
+        <file>img/page_menu/pushButton_continue_on.png</file>
+        <file>img/page_menu/pushButton_exit_off.png</file>
+        <file>img/page_menu/pushButton_exit_on.png</file>
+        <file>img/page_menu/pushButton_highscores_off.png</file>
+        <file>img/page_menu/pushButton_highscores_on.png</file>
+        <file>img/page_menu/pushButton_newGame_off.png</file>
+        <file>img/page_menu/pushButton_newGame_on.png</file>
+        <file>img/page_menu/pushButton_settings_off.png</file>
+        <file>img/page_menu/pushButton_settings_on.png</file>
+        <file>img/dialog_property/title_dialog.png</file>
+    </qresource>
+</RCC>

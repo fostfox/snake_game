@@ -13,6 +13,7 @@
 
 #include "gamefield.h"
 #include "drawfieldmanager.h"
+#include "dialog_pause.h"
 
 namespace Ui {
 class page_field;
@@ -53,10 +54,14 @@ private:
     //
     GameController* m_gameController;
     DrawFieldManager* m_drawFieldManager;
+    dialog_pause* m_dialog_pause;
+
+    bool isPauseGame;
 
 private slots:
     void saveGame(); //Слот ля сохранения настроек игры и возврата в меню
     void exitGame(); //Слот, который вызывается после завершения игры
+    void pauseGame();
     void updateField();
 };
 
