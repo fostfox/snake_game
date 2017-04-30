@@ -25,12 +25,13 @@ void page_field::launchPreviousGame()
     QVector<QPoint> snake;
     int direction;
     int score;
-    loadSettings(fieldSize, gameMode, gameSpeed, snake, direction, score);
+    QPoint posBonus;
+    loadSettings(fieldSize, gameMode, gameSpeed, snake, direction, score,posBonus);
 
     m_gameController = new GameController(fieldSize, gameMode, gameSpeed, score, this);
     m_drawFieldManager = new DrawFieldManager(ui->frame_field, m_gameController, fieldSize, this);
 
-    m_gameController->resumeGame(snake, direction);
+    m_gameController->resumeGame(snake, direction, posBonus);
     m_gameController->startGame();
 
     connect(m_gameController, SIGNAL(gameOver()), SLOT(exitGame())); //временно
@@ -51,7 +52,7 @@ void page_field::launchNewGame(QSize fieldSize, int type, int speed)
     connect(m_gameController, SIGNAL(draw()), SLOT(updateField()));
 }
 
-void page_field::loadSettings(QSize &fieldSize, int &gameType, int &speed, QVector<QPoint> &snake, int &direction, int &score)
+void page_field::loadSettings(QSize &fieldSize, int &gameType, int &speed, QVector<QPoint> &snake, int &direction, int &score, QPoint &posBonus)
 {
     QSettings settings("MonkeyCo", "Snake");
 
@@ -62,6 +63,7 @@ void page_field::loadSettings(QSize &fieldSize, int &gameType, int &speed, QVect
     QList<QVariant> lv_snake = settings.value("/snake").toList();
     direction = settings.value("/direction").toInt();
     score = settings.value("/score").toInt();
+    posBonus = settings.value("/bonus").toPoint();
     settings.endGroup();
 
     // QList<QVariant> => QList<QPoint> => QVector<QPoint>
@@ -71,7 +73,7 @@ void page_field::loadSettings(QSize &fieldSize, int &gameType, int &speed, QVect
     }
 }
 
-void page_field::saveSettings(QSize fieldSize, int gameType, int speed, QVector<QPoint> snake, int direction, int score)
+void page_field::saveSettings(QSize fieldSize, int gameType, int speed, QVector<QPoint> snake, int direction, int score, QPoint posBonus)
 {
     QSettings settings("MonkeyCo", "Snake");
 
@@ -87,6 +89,7 @@ void page_field::saveSettings(QSize fieldSize, int gameType, int speed, QVector<
     settings.setValue("/snake", lv_snake);
     settings.setValue("/direction", direction);
     settings.setValue("/score", score);
+    settings.setValue("/bonus",posBonus);
     settings.endGroup();
 }
 
@@ -107,8 +110,9 @@ void page_field::saveGame()
     QVector<QPoint> snake  = m_gameController->getSnake();
     int direction  = m_gameController->getDirection();
     int score = m_gameController->getScore();
+    QPoint posBonus = m_gameController->getBonus();
 
-    saveSettings(fieldSize, gameMode, gameSpeed, snake, direction, score);
+    saveSettings(fieldSize, gameMode, gameSpeed, snake, direction, score, posBonus);
 
     emit button_menu_pressed();
 }

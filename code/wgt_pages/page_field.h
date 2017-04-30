@@ -46,8 +46,8 @@ public:
     virtual void keyPressEvent(QKeyEvent *event);
 
 private:    
-    void loadSettings(QSize& fieldSize, int& gameType, int& speed, QVector<QPoint>& snake, int& direction, int& score);
-    void saveSettings(QSize fieldSize, int gameType, int speed, QVector<QPoint> snake, int direction, int score);
+    void loadSettings(QSize& fieldSize, int& gameType, int& speed, QVector<QPoint>& snake, int& direction, int& score, QPoint& posBonus);
+    void saveSettings(QSize fieldSize, int gameType, int speed, QVector<QPoint> snake, int direction, int score, QPoint posBonus);
     void clearSetting();
 
     Ui::page_field *ui;

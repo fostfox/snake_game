@@ -1,7 +1,7 @@
 #include "gamefield.h"
 
 
-//Конструктор по умолчанию
+//Конструктор
 GameController::GameController(QSize sizeField_ ,int type_  ,int speed_,int score_,QWidget *parent) :
     QWidget(parent)
   ,bonusExist(false)
@@ -10,6 +10,7 @@ GameController::GameController(QSize sizeField_ ,int type_  ,int speed_,int scor
   ,score(score_)
   ,gameType(type_)
   ,snakeSpeed(speed_)
+  ,isPause(false)
 {
     field.resize(fieldWidth);
     for(auto& it : field){
@@ -33,21 +34,26 @@ void GameController::startGame()
     updateTimer->start(1000/snakeSpeed);
 }
 
+//Метод инициализации новой игры
 void GameController::newGame()
 {
     //Создаем змейку
     snake=new Snake(fieldWidth, fieldHeight);
 }
 
-void GameController::resumeGame(QVector<QPoint> snake_, int direction_)
+//Метод инициализации продолжения игры
+void GameController::resumeGame(QVector<QPoint> snake_, int direction_, QPoint posBonus_)
 {
     //Создаем змейку
     snake=new Snake(snake_, direction_,fieldWidth, fieldHeight);
+    //Устанавливаем значение бонуса
+    pBonus=posBonus_;
+    bonusExist=true;
 }
 
 
 //Метод возвращающий счет
-int GameController::getScore()
+int GameController::getScore() const
 {
     return score;
 }
@@ -68,7 +74,8 @@ void GameController::update()
     }
 
     //Проверяем на нахождение бонуса
-    if(field[coordSnake[0].x()][coordSnake[0].y()]==fBonus ){
+    if(field[coordSnake[0].x()][coordSnake[0].y()]==fBonus
+            ||field[coordSnake[1].x()][coordSnake[1].y()]==fBonus){
         score++;
         snake->increase();
         bonusExist=false;
@@ -99,7 +106,6 @@ void GameController::update()
 
     //Рандомим положение бонусов
     if(!bonusExist){
-        //Возможно потом оптимизируется
         QVector<QPoint> emptyElements;
         for(int i(0);i<fieldWidth;i++){
             for(int j(0);j<fieldHeight;j++){
@@ -122,6 +128,7 @@ void GameController::update()
     //На отрисовку Богдану
     emit draw();
 }
+
 
 
 //Отслеживаем нажатие клавиш по смене направления
@@ -153,26 +160,44 @@ void GameController::keyPress(QKeyEvent *event){
     }
 }
 
+//Метод постановки на паузу
+void GameController::pauseGame()
+{
+    if(!isPause){
+        updateTimer->stop();
+        isPause=true;
+    }else{
+        updateTimer->start(1000/snakeSpeed);
+        isPause=false;
+    }
+}
+
+//Получить размер поля
 QSize GameController::getFieldSize() const
 {
     return QSize(fieldWidth, fieldHeight);
 }
-
+//Получить режим игры
 int GameController::getGameMode() const
 {
     return gameType;
 }
-
+//Получить значение скорости игры
 int GameController::getGameSpeed() const
 {
     return snakeSpeed;
 }
-
+//Получить координаты змейки
 QVector<QPoint> GameController::getSnake() const
 {
     return snake->getCoordinates();
 }
-
+//Получить бонус
+QPoint GameController::getBonus() const
+{
+    return pBonus;
+}
+//Получить направление движения змейки
 int GameController::getDirection() const
 {
     return snake->getDirection();

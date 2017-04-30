@@ -21,21 +21,25 @@ public:
     ,int score_
     ,QWidget *parent = 0
     );
+
     enum ObjectType{fEmpty,fSnake,fWall,fBonus};
-    const QVector<QVector<ObjectType>>& getField();
+    enum Keys{ArrowUp=328,W=17,ArrowDown=336,S=31,ArrowRight=333,D=32,ArrowLeft=331,A=30};
+
     void startGame();
     void newGame();
-    void resumeGame(QVector<QPoint> snake_, int direction_);
-    int getScore();
+    void resumeGame(QVector<QPoint> snake_, int direction_, QPoint posBonus_);
     void keyPress(QKeyEvent *event);
-    enum Keys{ArrowUp=328,W=17,ArrowDown=336,S=31,ArrowRight=333,D=32,ArrowLeft=331,A=30};
-    // TODO: Добавить методы pauseGame() \ stopGame()
+    void pauseGame();
 
+    int getScore() const;
     QSize getFieldSize() const;
     int getGameMode() const;
     int getGameSpeed() const;
     QVector<QPoint> getSnake() const;
+    QPoint getBonus() const;
     int getDirection() const;
+    const QVector<QVector<ObjectType>>& getField();
+    // TODO: Добавить методы pauseGame() \ stopGame()
 
 signals:
     void draw();
@@ -53,6 +57,7 @@ private:
     int gameType;
     int snakeSpeed;
     QTimer *updateTimer;
+    bool isPause;
 };
 
 #endif // GAMEFIELD_H
