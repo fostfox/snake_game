@@ -145,6 +145,7 @@ void MainWindow::loadPage_score(QString playerName, int score, int gameMode)
     connect(m_page_score, SIGNAL(button_backMenu_pressed()), SLOT(loadPage_menu()));
     connect(m_page_score, SIGNAL(button_highscores_pressed()), SLOT(loadPage_highscores()));
     connect(m_page_score, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
+
 }
 
 
