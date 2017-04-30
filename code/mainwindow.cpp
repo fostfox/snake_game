@@ -32,9 +32,9 @@ void MainWindow::loadPage_dialogProperty()
 
     dialog->show();
 
-
     connect(dialog, SIGNAL(button_setResolution_pressed(int, int))
             , SLOT(showAndSetupResolution(int, int)));
+    connect(dialog, SIGNAL(button_close_pressed()), SLOT(close()));
 }
 
 void MainWindow::loadPage_menu()
@@ -52,7 +52,7 @@ void MainWindow::loadPage_menu()
 
 
     //Проверка на то, что есть предыдущая версия игры для загрузки
-    QSettings settings("MonckeyCo", "Snake");
+    QSettings settings("MonkeyCo", "Snake");
     settings.beginGroup("/field_settings");
     if (!(settings.contains("/fieldSize")
             && settings.contains("/gameType")
@@ -85,6 +85,7 @@ void MainWindow::loadPage_field_new()
     // соединение кнопок на страницах с переключением страниц
     connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
+    connect(m_page_field, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
 }
 
 void MainWindow::loadPage_field_previos()
@@ -98,6 +99,7 @@ void MainWindow::loadPage_field_previos()
     // соединение кнопок на страницах с переключением страниц
     connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
+    connect(m_page_field, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
 }
 
 //Разрушает игровое поле
@@ -144,7 +146,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowFlags(Qt::SplashScreen | Qt::WindowStaysOnTopHint);
+    this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     m_page_field=nullptr;
     //Открытие диалогового окна разрешения
     loadPage_dialogProperty();    

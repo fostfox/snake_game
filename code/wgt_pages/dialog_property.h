@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QSize>
+#include <QVector>
 
 namespace Ui {
 class dialog_property;
@@ -14,7 +15,7 @@ class dialog_property : public QDialog
 
 signals:
     void button_setResolution_pressed(int w, int h);
-
+    void button_close_pressed();
 
 private slots:
     void readResolution();
@@ -27,6 +28,9 @@ public:
 
 private:
     Ui::dialog_property *ui;
+
+    QVector<QSize> allResolutions;
+    QVector<QSize> allowedResolutions;
 };
 
 #endif // DIALOG_PROPERTY_H

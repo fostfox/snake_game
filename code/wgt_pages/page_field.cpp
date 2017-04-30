@@ -1,13 +1,27 @@
 #include "page_field.h"
 #include "ui_page_field.h"
 
+
 page_field::page_field(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page_field)
+    ,isPauseGame(false)
 {
     ui->setupUi(this);
 
-    connect(ui->pushButton_menu, SIGNAL(clicked()), SLOT(saveGame()));
+    connect(ui->pushButton_menu, SIGNAL(clicked()), SLOT(pauseGame()));
+
+    //Создаем окно паузы
+    m_dialog_pause = new dialog_pause(this);
+    m_dialog_pause->setFixedSize(dynamic_cast<QWidget*>(this->parent())->size());
+    m_dialog_pause->repaint();
+
+    //m_dialog_pause->raise();
+    m_dialog_pause->hide();
+
+    connect(m_dialog_pause, SIGNAL(button_resume()), SLOT(resumeGame()));
+    connect(m_dialog_pause, SIGNAL(button_backmenu()), SLOT(saveGame()));
+    connect(m_dialog_pause, SIGNAL(button_retry()), SIGNAL(button_newGame_pressed()));
 }
 
 page_field::~page_field()
@@ -52,7 +66,7 @@ void page_field::launchNewGame(QSize fieldSize, int type, int speed)
 
 void page_field::loadSettings(QSize &fieldSize, int &gameType, int &speed, QVector<QPoint> &snake, int &direction, int &score, QPoint &posBonus)
 {
-    QSettings settings("MonckeyCo", "Snake");
+    QSettings settings("MonkeyCo", "Snake");
 
     settings.beginGroup("field_settings");
     fieldSize = settings.value("/fieldSize").toSize();
@@ -73,7 +87,7 @@ void page_field::loadSettings(QSize &fieldSize, int &gameType, int &speed, QVect
 
 void page_field::saveSettings(QSize fieldSize, int gameType, int speed, QVector<QPoint> snake, int direction, int score, QPoint posBonus)
 {
-    QSettings settings("MonckeyCo", "Snake");
+    QSettings settings("MonkeyCo", "Snake");
 
     //QVector<QPoint> => QList<QPoint> => QList<QVariant>
     QList<QVariant> lv_snake;
@@ -93,7 +107,7 @@ void page_field::saveSettings(QSize fieldSize, int gameType, int speed, QVector<
 
 void page_field::clearSetting()
 {
-    QSettings settings("MonckeyCo", "Snake");
+    QSettings settings("MonkeyCo", "Snake");
 
     settings.beginGroup("field_settings");
     settings.remove("");
@@ -122,6 +136,19 @@ void page_field::exitGame()
     //emit button_menu_pressed();   //DELETE
 }
 
+void page_field::pauseGame()
+{
+    m_dialog_pause->show();
+    m_gameController->pauseGame();
+}
+
+void page_field::resumeGame()
+{
+    m_dialog_pause->hide();
+    m_gameController->pauseGame();
+    this->setFocus();
+}
+
 void page_field::updateField()
 {
     int newScore = m_gameController->getScore();
@@ -134,33 +161,5 @@ void page_field::keyPressEvent(QKeyEvent *event)
     m_gameController->keyPress(event);
 }
 
-/*
-int page_field::getScore() const
-{
-    return ui->score->text().toInt();
-
-}
-
-void page_field::setScore(int s)
-{
-   ui->score->setText(QString::number(s));
-}
-
-QFrame *page_field::getGameField()
-{
-    return ui->frame_field;
-}
-
-QSize page_field::getFrameFieldSize() const
-{
-    return ui->frame_field->minimumSize();
-}
-
-
-void page_field::setFrameFieldSize(const QSize &size)
-{
-    ui->frame_field->setFixedSize(size);
-}
-*/
 
 

@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     wgt_pages/page_score.cpp \
     wgt_pages/page_settings.cpp \
     wgt_pages/page_welcomescreen.cpp \
-    wgt_pages/dialog_property.cpp
+    wgt_pages/dialog_property.cpp \
+    wgt_pages/dialog_pause.cpp
 
 HEADERS  += mainwindow.h \
     snake.h \
@@ -48,7 +49,8 @@ HEADERS  += mainwindow.h \
     wgt_pages/page_score.h \
     wgt_pages/page_settings.h \
     wgt_pages/page_welcomescreen.h \
-    wgt_pages/dialog_property.h
+    wgt_pages/dialog_property.h \
+    wgt_pages/dialog_pause.h
 
 FORMS    += mainwindow.ui \
     wgt_pages/page_menu.ui \
@@ -58,7 +60,8 @@ FORMS    += mainwindow.ui \
     wgt_pages/page_score.ui \
     wgt_pages/page_settings.ui \
     wgt_pages/page_welcomescreen.ui \
-    wgt_pages/dialog_property.ui
+    wgt_pages/dialog_property.ui \
+    wgt_pages/dialog_pause.ui
 
 RESOURCES += \
     resources.qrc
