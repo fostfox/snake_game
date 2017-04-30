@@ -13,7 +13,7 @@ class dialog_pause : public QWidget
 
 signals:
 
-    void button_backmenu();
+    void button_backMenu();
     void button_retry();
     void button_resume();
 

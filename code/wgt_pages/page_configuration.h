@@ -23,6 +23,7 @@ public:
     QSize getFieldSize() const;
     int getGameMode() const;
     int getGameSpeed() const;
+    QString getPlayerName();
 
 private:
     Ui::page_configuration *ui;

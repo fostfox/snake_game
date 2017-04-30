@@ -43,7 +43,6 @@ void MainWindow::loadPage_menu()
     m_page_menu = new page_Menu(this);
     this->setCentralWidget(m_page_menu);
 
-    // соединение кнопок на страницах с переключением страниц
     connect(m_page_menu, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
     connect(m_page_menu, SIGNAL(button_continue_pressed()), SLOT(loadPage_field_previos()));
     connect(m_page_menu, SIGNAL(button_highscores_pressed()), SLOT(loadPage_highscores()));
@@ -71,33 +70,33 @@ void MainWindow::loadPage_menu()
 
 void MainWindow::loadPage_field_new()
 {
-    //получаем необходимые параметры настройки игры от страницы
+    //получаем настройки, при условии, что страница ранее БЫЛА ЗАГРУЖЕНА !!!
     QSize fieldSize = m_page_configuration->getFieldSize();
     int gameMode = m_page_configuration->getGameMode();
     int gameSpeed = m_page_configuration->getGameSpeed();
+    QString playerName = m_page_configuration->getPlayerName();
 
-    /// TODO: придумать, как производить инициализацию один раз
     m_page_field = new page_field(this);
     this->setCentralWidget(m_page_field);
     m_page_field->setAttribute(Qt::WA_DeleteOnClose);
     m_page_field->launchNewGame(fieldSize, gameMode, gameSpeed);
+    m_page_field->setPlayerName(playerName);
 
-    // соединение кнопок на страницах с переключением страниц
-    connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
+    connect(m_page_field,SIGNAL(endOfGame(QString, int, int)),SLOT(destroyGameField()));
+    connect(m_page_field, SIGNAL(endOfGame(QString, int, int)), SLOT(loadPage_score(QString,int, int)));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
     connect(m_page_field, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
 }
 
 void MainWindow::loadPage_field_previos()
 {
-    /// TODO: придумать, как производить инициализацию один раз
     m_page_field = new page_field(this);
     this->setCentralWidget(m_page_field);
     m_page_field->setAttribute(Qt::WA_DeleteOnClose);
     m_page_field->launchPreviousGame();
 
-    // соединение кнопок на страницах с переключением страниц
-    connect(m_page_field,SIGNAL(destroy()),SLOT(destroyGameField()));
+    connect(m_page_field,SIGNAL(endOfGame(QString, int, int)),SLOT(destroyGameField()));
+    connect(m_page_field, SIGNAL(endOfGame(QString, int, int)), SLOT(loadPage_score(QString, int, int)));
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
     connect(m_page_field, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
 }
@@ -107,17 +106,13 @@ void MainWindow::destroyGameField()
 {
     m_page_field->close();
     m_page_field=nullptr;
-    loadPage_menu();
 }
 
 void MainWindow::loadPage_configuration()
 {
-    /// TODO: придумать, как производить инициализацию один раз
-    m_page_configuration = new page_configuration(this);
-    this->setCentralWidget(m_page_configuration);
+   m_page_configuration = new page_configuration(this);
+   this->setCentralWidget(m_page_configuration);
 
-
-//    // соединение кнопок на страницах с переключением страниц
    connect(m_page_configuration, SIGNAL(button_startGame_pressed()), SLOT(loadPage_field_new()));
    connect(m_page_configuration, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
 }
@@ -132,13 +127,21 @@ void MainWindow::loadPage_highscores()
 
 void MainWindow::loadPage_settings()
 {
-    /// TODO: придумать, как производить инициализацию один раз
     m_page_settings = new page_settings(this);
     this->setCentralWidget(m_page_settings);
 
     connect(m_page_settings, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
 }
 
+void MainWindow::loadPage_score(QString playerName, int score, int gameMode)
+{
+    m_page_score = new page_score(playerName, score, gameMode, this);
+    this->setCentralWidget(m_page_score);
+
+    connect(m_page_score, SIGNAL(button_backMenu_pressed()), SLOT(loadPage_menu()));
+    connect(m_page_score, SIGNAL(button_highscores_pressed()), SLOT(loadPage_highscores()));
+    connect(m_page_score, SIGNAL(button_newGame_pressed()), SLOT(loadPage_field_new()));
+}
 
 
 MainWindow::MainWindow(QWidget *parent) :

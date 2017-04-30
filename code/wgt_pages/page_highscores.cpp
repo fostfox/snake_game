@@ -47,12 +47,12 @@ page_highscores::~page_highscores()
 
 void page_highscores::loadRecords(QVector<page_highscores::Records> &records,const QString& folder)
 {
-    QSettings settings("MonckeyCo", "Snake");
+    QSettings settings("MonkeyCo", "Snake");
     settings.beginGroup(folder);
     for(int i(0);i<3;i++){
         Records tmp;
         tmp.name= settings.value("Name"+QString::number(i),"Empty").toString();
-        tmp.score= settings.value("Result"+QString::number(i),0).toInt();
+        tmp.score= settings.value("Result"+QString::number(i), 0).toInt();
         records.push_back(tmp);
     }
     settings.endGroup();
