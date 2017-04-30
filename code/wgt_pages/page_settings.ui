@@ -35,16 +35,6 @@
      <height>22</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>Dark forest</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Savana</string>
-    </property>
-   </item>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">

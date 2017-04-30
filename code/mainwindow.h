@@ -8,6 +8,7 @@
 #include "wgt_pages/page_configuration.h"
 #include "wgt_pages/page_settings.h"
 #include "wgt_pages/dialog_property.h"
+#include "wgt_pages/page_highscores.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,7 +28,7 @@ public slots:
     void loadPage_field_previos();
 
     void loadPage_configuration();
-    //void loadPage_highscores();
+    void loadPage_highscores();
     //voiloadpageSettings);
     void loadPage_settings();
     //
@@ -49,6 +50,7 @@ private:
     page_field* m_page_field;
     page_configuration* m_page_configuration;
     page_settings* m_page_settings;
+    page_highscores* m_page_higscores;
 };
 
 #endif // MAINWINDOW_H

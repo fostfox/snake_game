@@ -46,6 +46,7 @@ void MainWindow::loadPage_menu()
     // соединение кнопок на страницах с переключением страниц
     connect(m_page_menu, SIGNAL(button_newGame_pressed()), SLOT(loadPage_configuration()));
     connect(m_page_menu, SIGNAL(button_continue_pressed()), SLOT(loadPage_field_previos()));
+    connect(m_page_menu, SIGNAL(button_highscores_pressed()), SLOT(loadPage_highscores()));
     connect(m_page_menu, SIGNAL(button_settings_pressed()), SLOT(loadPage_settings()));
     connect(m_page_menu, SIGNAL(button_exit_pressed()), SLOT(close()));
 
@@ -99,6 +100,7 @@ void MainWindow::loadPage_field_previos()
     connect(m_page_field, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
 }
 
+//Разрушает игровое поле
 void MainWindow::destroyGameField()
 {
     m_page_field->close();
@@ -116,6 +118,14 @@ void MainWindow::loadPage_configuration()
 //    // соединение кнопок на страницах с переключением страниц
    connect(m_page_configuration, SIGNAL(button_startGame_pressed()), SLOT(loadPage_field_new()));
    connect(m_page_configuration, SIGNAL(button_menu_pressed()), SLOT(loadPage_menu()));
+}
+
+void MainWindow::loadPage_highscores()
+{
+    m_page_higscores=new page_highscores(this);
+    this->setCentralWidget(m_page_higscores);
+
+    connect(m_page_higscores,SIGNAL(button_menu_pressed()),SLOT(loadPage_menu()));
 }
 
 void MainWindow::loadPage_settings()
