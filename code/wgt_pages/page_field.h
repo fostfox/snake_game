@@ -24,10 +24,10 @@ class page_field : public QWidget
     Q_OBJECT
 
 signals:
+    void endOfGame(QString playerName, int score, int gameMode);
     void button_menu_pressed();
     void button_newGame_pressed();
     void pressKey(int);
-    void destroy();
 
 public:
     explicit page_field(QWidget *parent = 0);
@@ -37,6 +37,11 @@ public:
     void launchPreviousGame();
 
     virtual void keyPressEvent(QKeyEvent *event);
+
+    void setPlayerName(const QString &playerName);
+    int getScore();
+    QString getPlayerName();
+    int getType();
 
 private:    
     void loadSettings(QSize& fieldSize, int& gameType, int& speed, QVector<QPoint>& snake, int& direction, int& score, QPoint& posBonus);
@@ -49,7 +54,7 @@ private:
     DrawFieldManager* m_drawFieldManager;
     dialog_pause* m_dialog_pause;
 
-    bool isPauseGame;
+    QString m_playerName;
 
 private slots:
     void saveGame(); //Слот ля сохранения настроек игры и возврата в меню

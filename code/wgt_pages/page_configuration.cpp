@@ -38,9 +38,9 @@ int page_configuration::getGameMode() const
 {
     switch (ui->comboBox_gameMode->currentIndex()) {
     case 0 :
-        return 1;
-    case 1 :
         return 0;
+    case 1 :
+        return 1;
     default :
         qDebug() << "== Warning: page_configuration::getGameMode() : "
                     "\n for a given index there is no game mode value";
@@ -51,4 +51,9 @@ int page_configuration::getGameMode() const
 int page_configuration::getGameSpeed() const
 {
     return ui->hSlider_speed->value();
+}
+
+QString page_configuration::getPlayerName()
+{
+    return ui->lineEdit_playerName->text();
 }

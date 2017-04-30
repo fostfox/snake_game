@@ -3,7 +3,7 @@
 
 void page_settings::saveSettings()
 {
-    QSettings settings("MonckeyCo", "Snake");
+    QSettings settings("MonkeyCo", "Snake");
     settings.beginGroup("game_settings");
     settings.setValue("/theme",ui->comboBox->currentIndex());
     settings.endGroup();
@@ -20,7 +20,7 @@ page_settings::page_settings(QWidget *parent) :
         ui->comboBox->insertItem(i,themes[i]);
     }
     //Загружаем данные настроек
-    QSettings settings("MonckeyCo", "Snake");
+    QSettings settings("MonkeyCo", "Snake");
     settings.beginGroup("game_settings");
     ui->comboBox->setCurrentIndex(settings.value("/theme",0).toInt());
     settings.endGroup();

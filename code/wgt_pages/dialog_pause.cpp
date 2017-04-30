@@ -12,10 +12,9 @@ dialog_pause::dialog_pause(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->button_backmenu, SIGNAL(clicked()), SIGNAL(button_backmenu()));
+    connect(ui->button_backmenu, SIGNAL(clicked()), SIGNAL(button_backMenu()));
     connect(ui->button_resume, SIGNAL(clicked()), SIGNAL(button_resume()));
     connect(ui->button_retry, SIGNAL(clicked()), SIGNAL(button_retry()));
-
 }
 
 dialog_pause::~dialog_pause()

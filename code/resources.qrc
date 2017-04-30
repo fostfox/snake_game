@@ -18,5 +18,6 @@
         <file>img/page_menu/pushButton_settings_on.png</file>
         <file>img/dialog_property/title_dialog.png</file>
         <file>img/diaog_pause/pause.png</file>
+        <file>img/page_highscores/cups.png</file>
     </qresource>
 </RCC>

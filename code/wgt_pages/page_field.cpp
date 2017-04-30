@@ -5,7 +5,7 @@
 page_field::page_field(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page_field)
-    ,isPauseGame(false)
+
 {
     ui->setupUi(this);
 
@@ -20,7 +20,7 @@ page_field::page_field(QWidget *parent) :
     m_dialog_pause->hide();
 
     connect(m_dialog_pause, SIGNAL(button_resume()), SLOT(resumeGame()));
-    connect(m_dialog_pause, SIGNAL(button_backmenu()), SLOT(saveGame()));
+    connect(m_dialog_pause, SIGNAL(button_backMenu()), SLOT(saveGame()));
     connect(m_dialog_pause, SIGNAL(button_retry()), SIGNAL(button_newGame_pressed()));
 }
 
@@ -76,6 +76,7 @@ void page_field::loadSettings(QSize &fieldSize, int &gameType, int &speed, QVect
     direction = settings.value("/direction").toInt();
     score = settings.value("/score").toInt();
     posBonus = settings.value("/bonus").toPoint();
+    setPlayerName(settings.value("/playerName").toString());
     settings.endGroup();
 
     // QList<QVariant> => QList<QPoint> => QVector<QPoint>
@@ -102,6 +103,7 @@ void page_field::saveSettings(QSize fieldSize, int gameType, int speed, QVector<
     settings.setValue("/direction", direction);
     settings.setValue("/score", score);
     settings.setValue("/bonus",posBonus);
+    settings.setValue("/playerName", getPlayerName());
     settings.endGroup();
 }
 
@@ -132,8 +134,7 @@ void page_field::saveGame()
 void page_field::exitGame()
 {
     clearSetting();
-    emit destroy();
-    //emit button_menu_pressed();   //DELETE
+    emit endOfGame(getPlayerName(), getScore(), getType());
 }
 
 void page_field::pauseGame()
@@ -159,6 +160,33 @@ void page_field::updateField()
 void page_field::keyPressEvent(QKeyEvent *event)
 {
     m_gameController->keyPress(event);
+}
+
+void page_field::setPlayerName(const QString& playerName)
+{
+    m_playerName = playerName;
+    ui->label_playerName->setText(playerName);
+}
+
+int page_field::getScore()
+{
+    return (m_gameController != nullptr)
+            ? m_gameController->getScore()
+            : 0;
+}
+
+QString page_field::getPlayerName()
+{
+    return (m_playerName != "")
+            ? m_playerName
+            : "Player";
+}
+
+int page_field::getType()
+{
+    return (m_gameController != nullptr)
+            ? m_gameController->getGameMode()
+            : 0;
 }
 
 
