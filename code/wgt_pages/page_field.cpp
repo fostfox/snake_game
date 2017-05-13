@@ -32,15 +32,15 @@ page_field::~page_field()
 void page_field::launchPreviousGame()
 {
     QSize fieldSize;
-    int gameMode;
-    int gameSpeed;
+    //int gameMode;
+    //int gameSpeed;
     QVector<QPoint> snake;
     int direction;
     int score;
     QPoint posBonus;
-    loadSettings(fieldSize, gameMode, gameSpeed, snake, direction, score,posBonus);
+    loadSettings(fieldSize, m_gameMode, m_gameSpeed, snake, direction, score,posBonus);
 
-    m_gameController = new GameController(fieldSize, gameMode, gameSpeed, score, this);
+    m_gameController = new GameController(fieldSize, m_gameMode, m_gameSpeed, score, this);
     m_drawFieldManager = new DrawFieldManager(ui->frame_field, m_gameController, fieldSize, this);
 
     m_gameController->resumeGame(snake, direction, posBonus);
@@ -52,10 +52,12 @@ void page_field::launchPreviousGame()
 
 void page_field::launchNewGame(QSize fieldSize, int type, int speed)
 {
+    m_gameMode = type;
     m_gameController = new GameController(fieldSize, type, speed, 0, this);
     m_drawFieldManager = new DrawFieldManager(ui->frame_field, m_gameController, fieldSize, this);
 
     //ui->frame_field->show();
+    m_gameSpeed = speed;
 
     m_gameController->newGame();
     m_gameController->startGame();
@@ -152,9 +154,13 @@ void page_field::resumeGame()
 
 void page_field::updateField()
 {
-    int newScore = m_gameController->getScore();
-    ui->score->setText(QString::number(newScore));
-    m_drawFieldManager->updateField();
+    ui->score->setText(QString::number(getScore()));
+
+   if (m_gameMode == 0) {
+       m_drawFieldManager->updateField_type1();
+   } else {
+       m_drawFieldManager->updateField_type2();
+   }
 }
 
 void page_field::keyPressEvent(QKeyEvent *event)
@@ -171,7 +177,7 @@ void page_field::setPlayerName(const QString& playerName)
 int page_field::getScore()
 {
     return (m_gameController != nullptr)
-            ? m_gameController->getScore()
+            ? m_gameController->getScore() * m_gameSpeed
             : 0;
 }
 

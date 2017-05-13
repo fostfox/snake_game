@@ -4,7 +4,6 @@
         <file>img/page_field/bonus2.png</file>
         <file>img/page_field/bonus3.png</file>
         <file>img/page_field/empty.png</file>
-        <file>img/page_field/snakeBody.png</file>
         <file>img/page_field/wall.png</file>
         <file>img/page_menu/pushButton_continue_off.png</file>
         <file>img/page_menu/pushButton_continue_on.png</file>
@@ -19,5 +18,20 @@
         <file>img/dialog_property/title_dialog.png</file>
         <file>img/diaog_pause/pause.png</file>
         <file>img/page_highscores/cups.png</file>
+        <file>img/page_field/snakeBody2.png</file>
+        <file>img/page_field/Tail_N.png</file>
+        <file>img/page_field/Tail_S.png</file>
+        <file>img/page_field/Tail_E.png</file>
+        <file>img/page_field/Tail_W.png</file>
+        <file>img/page_field/Head_N.png</file>
+        <file>img/page_field/Head_S.png</file>
+        <file>img/page_field/Head_E.png</file>
+        <file>img/page_field/Head_W.png</file>
+        <file>img/page_field/Body_side_SE.png</file>
+        <file>img/page_field/Body_side_NE.png</file>
+        <file>img/page_field/Body_side_NW.png</file>
+        <file>img/page_field/Body_side_SW.png</file>
+        <file>img/page_field/Body_NS.png</file>
+        <file>img/page_field/Body_WE.png</file>
     </qresource>
 </RCC>

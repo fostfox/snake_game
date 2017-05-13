@@ -53,6 +53,8 @@ private:
     GameController* m_gameController;
     DrawFieldManager* m_drawFieldManager;
     dialog_pause* m_dialog_pause;
+    int m_gameMode;
+    int m_gameSpeed;
 
     QString m_playerName;
 
