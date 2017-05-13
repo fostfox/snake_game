@@ -23,6 +23,9 @@ public:
     explicit page_highscores(QWidget *parent = 0);
     ~page_highscores();
 
+protected:
+    void paintEvent(QPaintEvent *pe);
+
 private:
     Ui::page_highscores *ui;
     struct Records{

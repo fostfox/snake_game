@@ -16,6 +16,9 @@ signals:
     void button_highscores_pressed();
     void button_newGame_pressed();
 
+protected:
+    void paintEvent(QPaintEvent *pe);
+
 public:
     //Конструктор осуществляет запись результатов в реестр
     explicit page_score(QString playerName, int score, int gameMode, QWidget *parent = 0);

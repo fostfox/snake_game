@@ -2,6 +2,16 @@
 #include "ui_page_configuration.h"
 
 #include <QDebug>
+#include <QPainter>
+#include <QStyleOption>
+
+void page_configuration::paintEvent(QPaintEvent *pe)
+{
+    QStyleOption o;
+    o.initFrom(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
 
 page_configuration::page_configuration(QWidget *parent) :
     QWidget(parent),

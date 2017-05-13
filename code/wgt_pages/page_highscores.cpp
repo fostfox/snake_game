@@ -1,5 +1,15 @@
 #include "page_highscores.h"
 #include "ui_page_highscores.h"
+#include <QPainter>
+#include <QStyleOption>
+
+void page_highscores::paintEvent(QPaintEvent *pe)
+{
+    QStyleOption o;
+    o.initFrom(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
 
 void page_highscores::changeTable()
 {

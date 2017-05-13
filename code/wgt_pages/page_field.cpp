@@ -1,5 +1,15 @@
 #include "page_field.h"
 #include "ui_page_field.h"
+#include <QPainter>
+#include <QStyleOption>
+
+void page_field::paintEvent(QPaintEvent *pe)
+{
+    QStyleOption o;
+    o.initFrom(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
 
 
 page_field::page_field(QWidget *parent) :

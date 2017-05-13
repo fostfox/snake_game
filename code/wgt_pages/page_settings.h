@@ -17,6 +17,9 @@ class page_settings : public QWidget
 signals:
     void button_menu_pressed();
 
+protected:
+    void paintEvent(QPaintEvent *pe);
+
 private slots:
     void saveSettings();
 

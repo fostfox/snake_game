@@ -17,6 +17,9 @@ signals:
     void button_retry();
     void button_resume();
 
+protected:
+    void paintEvent(QPaintEvent *pe);
+
 public slots:
     virtual void repaint();
 

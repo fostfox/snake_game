@@ -1,6 +1,16 @@
 #include "page_score.h"
 #include "ui_page_score.h"
 #include <QSettings>
+#include <QPainter>
+#include <QStyleOption>
+
+void page_score::paintEvent(QPaintEvent *pe)
+{
+    QStyleOption o;
+    o.initFrom(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
 
 
 page_score::page_score(QString playerName, int score, int gameMode, QWidget *parent)

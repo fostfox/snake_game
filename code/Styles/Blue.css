@@ -1,0 +1,264 @@
+/*Menu-----------------------------------*/
+
+QPushButton#pushButton_newGame{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/newgameOff.png);
+}
+
+QPushButton#pushButton_continue{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/continueOff.png);
+}
+
+QPushButton#pushButton_highscores{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/recordsOff.png);
+}
+
+QPushButton#pushButton_settings{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/settingsOff.png);
+}
+
+QPushButton#pushButton_exit{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/exitOff.png);
+}
+
+QPushButton#pushButton_newGame:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/newgameOn.png);
+}
+
+QPushButton#pushButton_continue:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/continueOn.png);
+}
+
+QPushButton#pushButton_highscores:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/recordsOn.png);
+}
+
+QPushButton#pushButton_settings:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/settingsOn.png);
+}
+
+QPushButton#pushButton_exit:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/exitOn.png);
+}
+
+QWidget#page_Menu{
+    image: url(:/BlueStyle/img/BlueStyle/page_menu/background.png);
+}
+/*Menu--------------------------------------*/
+
+/*Configuration-----------------------------*/
+
+QWidget#page_configuration::font{
+    color: red;
+}
+
+QSlider#Slider::groove {
+     border: 1px solid #999999;
+     width: 4px; 
+     margin: 5px 0;
+ }
+ 
+QSlider#Slider::handle  {
+     background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #326cd9, stop:1 #8f8f8f);
+     border: 1px solid #0d0a3b;
+     width: 5px;
+	 height: 7px;
+     margin: -5px -3px; 
+     border-radius: 3px;
+ }
+
+QSlider#Slider::add-page  {
+     background: #0d3eba;
+ }
+
+QSlider#Slider::sub-page  {
+     background: #346cfa;
+ }
+
+QPushButton#pushButton_startGame{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_configuration/goOff.png);
+}
+
+QPushButton#pushButton_startGame:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_configuration/goOn.png);
+}
+
+QPushButton#pushButton_menu{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_configuration/menuOff.png);
+}
+
+QPushButton#pushButton_menu:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_configuration/menuOn.png);
+}
+
+QLabel#Player_name{
+font-family: "Rust";
+color: #e1fb04
+}
+
+QLabel#Speed{
+font-family: "Rust";
+color: #e1fb04
+}
+
+QLabel#Mode{
+font-family: "Rust";
+color: #e1fb04
+}
+
+QLabel#Field_Size{
+font-family: "Rust";
+color: #e1fb04
+}
+
+QComboBox#comboBox_gameMode{
+    font-family: "Rust";
+    color: #e1fb04;
+    background-color: #1ba640;
+    border:none;
+}
+
+QComboBox#comboBox_gameMode::drop-down{
+    border:none;
+    background-color: #e1fb04;
+}
+
+QComboBox#comboBox_gameMode:focus{
+    border: none;
+}
+
+QComboBox#comboBox_gameMode QAbstractItemView{
+    background-color: #1ba640;
+    color: #e1fb04
+}
+
+QComboBox#comboBox_fieldSize{
+    font-family: "Rust";
+    color: #e1fb04;
+    background-color: #1ba640;
+    border:none;
+}
+
+QComboBox#comboBox_fieldSize::drop-down{
+    border:none;
+    background-color: #e1fb04;
+}
+
+QComboBox#comboBox_fieldSize:focus{
+    border: none;
+}
+
+QComboBox#comboBox_fieldSize QAbstractItemView{
+    background-color: #1ba640;
+    color: #e1fb04
+}
+
+QWidget#page_configuration{
+    image: url(:/BlueStyle/img/BlueStyle/page_configuration/background.png);
+}
+ /*Configuration-----------------------------*/
+
+/*Pause--------------------------------------*/
+QWidget#Pause{
+    background-image: url();
+    color: #000000;
+}
+
+QPushButton#Resume{
+    border-image: url();
+}
+
+QPushButton#Retry{
+    border-image: url();
+}
+
+QPushButton#Menu{
+    border-image: url();
+}
+
+QPushButton#Resume:hover:pressed{
+    border-image: url();
+}
+
+QPushButton#Retry:hover:pressed{
+    border-image: url();
+}
+
+QPushButton#Menu:hover:pressed{
+    border-image: url();
+}
+/*Pause--------------------------------------*/
+
+/*Result-------------------------------------*/
+QWidget#Result{
+    background-image: url();
+    color: #000000;
+}
+
+QPushButton#Highscores{
+    border-image: url();
+}
+
+QPushButton#NewGame{
+    border-image: url();
+}
+
+QPushButton#BackToMenu{
+    border-image: url();
+}
+
+QPushButton#Highscores:hover:pressed{
+    border-image: url();
+}
+
+QPushButton#NewGame:hover:pressed{
+    border-image: url();
+}
+
+QPushButton#BackToMenu:hover:pressed{
+    border-image: url();
+}
+/*Result-------------------------------------*/
+
+/*Settings-------------------------------------*/
+QWidget#Settings{
+    background-image: url();
+    color: #000000;
+}
+
+QPushButton#BackToMenu{
+    border-image: url();
+}
+
+QPushButton#BackToMenu:hover:pressed{
+    border-image: url();
+}
+/*Settings-------------------------------------*/
+
+/*Highscores-----------------------------------*/
+QWidget#Highscores{
+    background-image: url();
+    color: #000000;
+}
+
+QPushButton#ArcadeFree{
+    border-image: url();
+}
+
+QPushButton#ArcadeFree:hover:pressed{
+    border-image: url();
+}
+
+QPushButton#BackToMenu{
+    border-image: url();
+}
+
+QPushButton#BackToMenu:hover:pressed{
+    border-image: url();
+}
+
+/*Highscores-----------------------------------*/
+
+/*General------------------------------------*/
+
+
+/*General------------------------------------*/

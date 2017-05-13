@@ -29,6 +29,9 @@ signals:
     void button_newGame_pressed();
     void pressKey(int);
 
+protected:
+    void paintEvent(QPaintEvent *pe);
+
 public:
     explicit page_field(QWidget *parent = 0);
     ~page_field();

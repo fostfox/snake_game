@@ -1,5 +1,15 @@
 #include "dialog_pause.h"
 #include "ui_dialog_pause.h"
+#include <QPainter>
+#include <QStyleOption>
+
+void dialog_pause::paintEvent(QPaintEvent *pe)
+{
+    QStyleOption o;
+    o.initFrom(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
 
 void dialog_pause::repaint()
 {

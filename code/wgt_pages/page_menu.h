@@ -18,6 +18,9 @@ signals:
     void button_settings_pressed();
     void button_exit_pressed();
 
+protected:
+    void paintEvent(QPaintEvent *pe);
+
 public:
     explicit page_Menu(QWidget *parent = 0);
     ~page_Menu();
