@@ -18,7 +18,8 @@ class page_highscores : public QWidget
 signals:
     void button_menu_pressed();
 private slots:
-    void changeTable();
+    void pressed_free();
+    void pressed_arcade();
 public:
     explicit page_highscores(QWidget *parent = 0);
     ~page_highscores();

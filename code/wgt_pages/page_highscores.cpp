@@ -11,20 +11,32 @@ void page_highscores::paintEvent(QPaintEvent *pe)
     style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
 }
 
-void page_highscores::changeTable()
+void page_highscores::pressed_free()
+{
+    if(!isFreeRecords){
+        for(int i(0);i<3;i++){
+            labels[i].first->setText(m_freeRecords[i].name);
+            labels[i].second->setText(QString::number(m_freeRecords[i].score));
+        }
+        ui->pushButton_3->setChecked(true);
+        ui->pushButton_2->setChecked(false);
+        ui->pushButton_3->setEnabled(false);
+        ui->pushButton_2->setEnabled(true);
+    }
+    isFreeRecords=(!isFreeRecords);
+}
+
+void page_highscores::pressed_arcade()
 {
     if(isFreeRecords){
         for(int i(0);i<3;i++){
             labels[i].first->setText(m_arcadeRecords[i].name);
             labels[i].second->setText(QString::number(m_arcadeRecords[i].score));
         }
-        ui->pushButton_2->setText("Free");
-    }else{
-        for(int i(0);i<3;i++){
-            labels[i].first->setText(m_freeRecords[i].name);
-            labels[i].second->setText(QString::number(m_freeRecords[i].score));
-        }
-        ui->pushButton_2->setText("Arcade");
+        ui->pushButton_3->setChecked(false);
+        ui->pushButton_2->setChecked(true);
+        ui->pushButton_2->setEnabled(false);
+        ui->pushButton_3->setEnabled(true);
     }
     isFreeRecords=(!isFreeRecords);
 }
@@ -44,9 +56,10 @@ page_highscores::page_highscores(QWidget *parent) :
         QLabel* result=this->findChild<QLabel*>("Result"+QString::number(i));
         labels.push_back(QPair<QLabel*,QLabel*>(name,result));
     }
-    qDebug()<<m_freeRecords.size()<<" "<<m_arcadeRecords.size();
-    changeTable();
-    connect(ui->pushButton_2,SIGNAL(clicked()),SLOT(changeTable()));
+
+    pressed_free();
+    connect(ui->pushButton_2,SIGNAL(clicked()),SLOT(pressed_arcade()));
+    connect(ui->pushButton_3,SIGNAL(clicked()),SLOT(pressed_free()));
     connect(ui->pushButton,SIGNAL(clicked()),SIGNAL(button_menu_pressed()));
 }
 

@@ -1,0 +1,376 @@
+/*Menu-----------------------------------*/
+
+QPushButton#pushButton_newGame{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/newgameOff.png);
+}
+
+QPushButton#pushButton_continue{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/continueOff.png);
+}
+
+QPushButton#pushButton_highscores{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/recordsOff.png);
+}
+
+QPushButton#pushButton_settings{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/settingsOff.png);
+}
+
+QPushButton#pushButton_exit{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/exitOff.png);
+}
+
+QPushButton#pushButton_newGame:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/newgameOn.png);
+}
+
+QPushButton#pushButton_continue:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/continueOn.png);
+}
+
+QPushButton#pushButton_highscores:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/recordsOn.png);
+}
+
+QPushButton#pushButton_settings:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/settingsOn.png);
+}
+
+QPushButton#pushButton_exit:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/exitOn.png);
+}
+
+QWidget#page_Menu{
+    image: url(:/BeigeStyle/img/BeigeStyle/page_menu/background.png);
+}
+/*Menu--------------------------------------*/
+
+/*Configuration-----------------------------*/
+QSlider#hSlider_speed::groove {
+     border: 1px solid #999999;
+     height: 4px;
+     margin: 1px 0;
+ }
+
+QSlider#hSlider_speed::handle  {
+     background: #353d32;
+     border: 1px solid #0d0a3b;
+     width: 7px;
+     height: 7px;
+     margin: -5px -1px;
+     border-radius: 3px;
+     border-color: #7c911c;
+ }
+
+QSlider#hSlider_speed::add-page  {
+     background: #c5c953
+ }
+
+QSlider#hSlider_speed::sub-page  {
+     background: #353d32;
+ }
+
+QPushButton#pushButton_startGame{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_configuration/images/goOff.png);
+}
+
+QPushButton#pushButton_startGame:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_configuration/images/goOn.png);
+}
+
+QPushButton#pushButton_menu{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOff.png);
+}
+
+QPushButton#pushButton_menu:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOn.png);
+}
+
+QLabel#Player_name{
+font-family: "Rust";
+color: #353d32;
+}
+
+QLabel#Speed{
+font-family: "Rust";
+color: #353d32;
+}
+
+QLabel#Mode{
+font-family: "Rust";
+color: #353d32;
+}
+
+QLabel#Field_Size{
+font-family: "Rust";
+color: #353d32;
+}
+
+QLineEdit#lineEdit_playerName{
+    font-family: "My Font";
+    background: #c5c953;
+    color: #353d32;
+    border: none;
+}
+
+QComboBox#comboBox_gameMode{
+    font-family: "Rust";
+    color: #353d32;
+    background-color: #c5c953;
+    border:none;
+}
+
+QComboBox#comboBox_gameMode::drop-down{
+    border:none;
+    background-color: #353d32;
+}
+
+QComboBox#comboBox_gameMode:focus{
+    border: none;
+}
+
+QComboBox#comboBox_gameMode QAbstractItemView{
+    background-color: #c5c953;
+    color: #353d32;
+}
+
+QComboBox#comboBox_fieldSize{
+    font-family: "Rust";
+    color: #353d32;
+    background-color: #c5c953;
+    border:none;
+}
+
+QComboBox#comboBox_fieldSize::drop-down{
+    border:none;
+    background-color: #353d32;
+}
+
+QComboBox#comboBox_fieldSize:focus{
+    border: none;
+}
+
+QComboBox#comboBox_fieldSize QAbstractItemView{
+    background-color: #c5c953;
+    color: #353d32;
+}
+
+QWidget#page_configuration{
+    image: url(:/BeigeStyle/img/BeigeStyle/page_configuration/background.png);
+}
+ /*Configuration-----------------------------*/
+
+/*Pause--------------------------------------*/
+QPushButton#button_resume{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/resumeOff.png);
+}
+
+QPushButton#button_retry{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/retryOff.png);
+}
+
+QPushButton#button_backmenu{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOff.png);
+}
+
+QPushButton#button_resume:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/resumeOn.png);
+}
+
+QPushButton#button_retry:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/retryOn.png);
+}
+
+QPushButton#button_backmenu:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOn.png);
+}
+/*Pause--------------------------------------*/
+
+/*Result-------------------------------------*/
+QWidget#page_score{
+    image: url(:/BeigeStyle/img/BeigeStyle/page_configuration/background.png);
+}
+
+QPushButton#button_backMenu{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOff.png);
+}
+
+QPushButton#button_backMenu:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOn.png);
+}
+
+QPushButton#button_highscores{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/recordsOff.png);
+}
+
+QPushButton#button_highscores:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/recordsOn.png);
+}
+
+QPushButton#button_newGame{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/newgameOff.png);
+}
+
+QPushButton#button_newGame:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/page_menu/images/newgameOn.png);
+}
+
+QLabel#label{
+font-family: "My Font";
+color: #353d32;
+}
+
+QLabel#label_player{
+font-family: "My Font";
+color: #353d32;
+}
+
+QLabel#label_score{
+font-family: "My Font";
+color: #353d32;
+}
+/*Result-------------------------------------*/
+
+/*Field--------------------------------------*/
+QWidget#page_field{
+        image: url(:/BeigeStyle/img/BeigeStyle/page_configuration/background.png);
+}
+
+QFrame#frame_field{
+        border: 4px solid #353d32;
+}
+
+QPushButton#pushButton_menu{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOff.png);
+}
+
+QPushButton#pushButton_menu:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOn.png);
+}
+
+QLabel#score_text{
+font-family: "My Font";
+color: #353d32;
+}
+
+QLabel#player_name_text{
+font-family: "My Font";
+color: #353d32;
+}
+
+QLabel#score{
+font-family:"My Font";
+color: #353d32;
+}
+
+QLabel#label_playerName{
+font-family:"My Font";
+color: #353d32;
+}
+
+/*Field--------------------------------------*/
+
+/*Settings-------------------------------------*/
+QComboBox#comboBox{
+    font-family: "Rust";
+    color: #353d32;
+    background-color: #c5c953;
+    border:none;
+}
+
+QComboBox#comboBox::drop-down{
+    border:none;
+    background-color: #353d32;
+}
+
+QComboBox#comboBox:focus{
+    border: none;
+}
+
+QComboBox#comboBox QAbstractItemView{
+    background-color: #c5c953;
+    color: #353d32;
+}
+
+QWidget#page_settings{
+    image: url(:/BeigeStyle/img/BeigeStyle/page_configuration/background.png);
+}
+
+QPushButton#pushButton_menu{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOff.png);
+}
+
+QPushButton#pushButton_menu:hover:pressed{
+    border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOn.png);
+}
+
+QLabel#labelTheme{
+font-family: "Rust";
+color: #353d32;
+}
+/*Settings-------------------------------------*/
+
+/*Highscores-----------------------------------*/
+QWidget#page_highscores{
+        image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/background.png);
+}
+
+QPushButton#pushButton{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOff.png);
+}
+
+QPushButton#pushButton::hover:pressed{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/diaog_pause/images/menuOn.png);
+}
+
+QPushButton#pushButton_3{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/freeOff.png);
+}
+
+QPushButton#pushButton_3::hover:pressed{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/freeOn.png);
+}
+
+QPushButton#pushButton_2{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/arcadeOff.png);
+}
+
+QPushButton#pushButton_2::hover:pressed{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/arcadeOn.png);
+}
+
+QLabel#Name0{
+        font-family: "My Font";
+        color: #fefdc5;
+}
+
+QLabel#Name1{
+        font-family: "My Font";
+        color: #fefdc5;
+}
+
+QLabel#Name2{
+        font-family: "My Font";
+        color: #fefdc5;
+}
+
+QLabel#Result0{
+        font-family: "My Font";
+        color: #fefdc5;
+}
+
+QLabel#Result1{
+        font-family: "My Font";
+        color: #fefdc5;
+}
+
+QLabel#Result2{
+        font-family: "My Font";
+        color: #fefdc5;
+}
+/*Highscores-----------------------------------*/
+
+/*General------------------------------------*/
+
+
+/*General------------------------------------*/

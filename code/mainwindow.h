@@ -36,6 +36,7 @@ public slots:
     //void loadPage_welcomescreen();
 
 public:
+    int getStyle();
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
@@ -44,6 +45,8 @@ protected:
 
 private:
     Ui::MainWindow *ui;
+
+    int m_style;
 
     //страницы
     page_Menu* m_page_menu;

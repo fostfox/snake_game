@@ -1,26 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>img/page_field/bonus1.png</file>
-        <file>img/page_field/bonus2.png</file>
-        <file>img/page_field/bonus3.png</file>
-        <file>img/page_field/empty.png</file>
-        <file>img/page_field/wall.png</file>
-        <file>img/dialog_property/title_dialog.png</file>
-        <file>img/page_field/snakeBody2.png</file>
-        <file>img/page_field/Tail_N.png</file>
-        <file>img/page_field/Tail_S.png</file>
-        <file>img/page_field/Tail_E.png</file>
-        <file>img/page_field/Tail_W.png</file>
-        <file>img/page_field/Head_N.png</file>
-        <file>img/page_field/Head_S.png</file>
-        <file>img/page_field/Head_E.png</file>
-        <file>img/page_field/Head_W.png</file>
-        <file>img/page_field/Body_side_SE.png</file>
-        <file>img/page_field/Body_side_NE.png</file>
-        <file>img/page_field/Body_side_NW.png</file>
-        <file>img/page_field/Body_side_SW.png</file>
-        <file>img/page_field/Body_NS.png</file>
-        <file>img/page_field/Body_WE.png</file>
         <file>fonts/Rust.ttf</file>
         <file>fonts/RustNew.otf</file>
         <file>fonts/RustNew-Regular.otf</file>
@@ -56,5 +35,84 @@
         <file>img/BlueStyle/page_menu/settingsOff.png</file>
         <file>img/BlueStyle/page_menu/settingsOn.png</file>
         <file>Styles/Blue.css</file>
+        <file>Styles/Purple.css</file>
+    </qresource>
+    <qresource prefix="/PurpleStyle">
+        <file>Styles/Purple.css</file>
+        <file>img/PurpleStyle/diaog_pause/images/menuOff.png</file>
+        <file>img/PurpleStyle/diaog_pause/images/menuOn.png</file>
+        <file>img/PurpleStyle/diaog_pause/images/resumeOff.png</file>
+        <file>img/PurpleStyle/diaog_pause/images/resumeOn.png</file>
+        <file>img/PurpleStyle/diaog_pause/images/retryOff.png</file>
+        <file>img/PurpleStyle/diaog_pause/images/retryOn.png</file>
+        <file>img/PurpleStyle/page_configuration/images/goOff.png</file>
+        <file>img/PurpleStyle/page_configuration/images/goOn.png</file>
+        <file>img/PurpleStyle/page_configuration/images/menuOff.png</file>
+        <file>img/PurpleStyle/page_configuration/images/menuOn.png</file>
+        <file>img/PurpleStyle/page_configuration/back.png</file>
+        <file>img/PurpleStyle/page_configuration/background.png</file>
+        <file>img/PurpleStyle/page_configuration/total.png</file>
+        <file>img/PurpleStyle/page_field/background.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_03.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_05.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_08.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_10.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_11.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_12.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_14.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_19.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_21.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_23.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_24.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_27.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_31.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_34.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_35.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_37.png</file>
+        <file>img/PurpleStyle/page_field/images/snake_40.png</file>
+        <file>img/PurpleStyle/page_highscores/images/arcadeOff.png</file>
+        <file>img/PurpleStyle/page_highscores/images/arcadeOn.png</file>
+        <file>img/PurpleStyle/page_highscores/images/freeOff.png</file>
+        <file>img/PurpleStyle/page_highscores/images/freeOn.png</file>
+        <file>img/PurpleStyle/page_highscores/images/menuOff.png</file>
+        <file>img/PurpleStyle/page_highscores/images/menuOn.png</file>
+        <file>img/PurpleStyle/page_highscores/background.png</file>
+        <file>img/PurpleStyle/page_menu/images/continueOff.png</file>
+        <file>img/PurpleStyle/page_menu/images/continueOn.png</file>
+        <file>img/PurpleStyle/page_menu/images/exitOff.png</file>
+        <file>img/PurpleStyle/page_menu/images/exitOn.png</file>
+        <file>img/PurpleStyle/page_menu/images/newgameOff.png</file>
+        <file>img/PurpleStyle/page_menu/images/newgameOn.png</file>
+        <file>img/PurpleStyle/page_menu/images/recordsOff.png</file>
+        <file>img/PurpleStyle/page_menu/images/recordsOn.png</file>
+        <file>img/PurpleStyle/page_menu/images/settingsOff.png</file>
+        <file>img/PurpleStyle/page_menu/images/settingsOn.png</file>
+        <file>img/PurpleStyle/page_menu/background.png</file>
+    </qresource>
+    <qresource prefix="/BeigeStyle">
+        <file>img/BeigeStyle/diaog_pause/images/menuOff.png</file>
+        <file>img/BeigeStyle/diaog_pause/images/menuOn.png</file>
+        <file>img/BeigeStyle/diaog_pause/images/resumeOff.png</file>
+        <file>img/BeigeStyle/diaog_pause/images/resumeOn.png</file>
+        <file>img/BeigeStyle/diaog_pause/images/retryOff.png</file>
+        <file>img/BeigeStyle/diaog_pause/images/retryOn.png</file>
+        <file>img/BeigeStyle/page_configuration/background.png</file>
+        <file>img/BeigeStyle/page_configuration/images/goOff.png</file>
+        <file>img/BeigeStyle/page_configuration/images/goOn.png</file>
+        <file>img/BeigeStyle/page_configuration/images/menuOff.png</file>
+        <file>img/BeigeStyle/page_configuration/images/menuOn.png</file>
+        <file>img/BeigeStyle/page_menu/images/continueOff.png</file>
+        <file>img/BeigeStyle/page_menu/images/continueOn.png</file>
+        <file>img/BeigeStyle/page_menu/images/exitOff.png</file>
+        <file>img/BeigeStyle/page_menu/images/exitOn.png</file>
+        <file>img/BeigeStyle/page_menu/images/newgameOff.png</file>
+        <file>img/BeigeStyle/page_menu/images/newgameOn.png</file>
+        <file>img/BeigeStyle/page_menu/images/recordsOff.png</file>
+        <file>img/BeigeStyle/page_menu/images/recordsOn.png</file>
+        <file>img/BeigeStyle/page_menu/images/settingsOff.png</file>
+        <file>img/BeigeStyle/page_menu/images/settingsOn.png</file>
+        <file>img/BeigeStyle/page_highscores/background.png</file>
+        <file>img/BeigeStyle/page_menu/background.png</file>
+        <file>Styles/Biege.css</file>
     </qresource>
 </RCC>

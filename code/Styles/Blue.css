@@ -336,11 +336,19 @@ QPushButton#pushButton_3::hover:pressed{
         border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/freeOn.png);
 }
 
+QPushButton#pushButton_3:checked{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/freeOn.png);
+}
+
 QPushButton#pushButton_2{
         border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/ArcadeOff.png);
 }
 
 QPushButton#pushButton_2::hover:pressed{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/arcadeOn.png);
+}
+
+QPushButton#pushButton_2:checked{
         border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/arcadeOn.png);
 }
 
