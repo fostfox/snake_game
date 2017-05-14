@@ -3,12 +3,35 @@
 #include <QPainter>
 #include <QStyleOption>
 
-void page_highscores::paintEvent(QPaintEvent *pe)
+void page_highscores::paintEvent(QPaintEvent *)
 {
     QStyleOption o;
     o.initFrom(this);
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
+
+void page_highscores::resizeEvent(QResizeEvent *)
+{
+    auto resize_label_font = [](QLabel* l) {
+        QFont f = l->font();
+
+        QFontMetrics metrics(f);
+        QSize size = metrics.size(0, l->text());
+        float factorw = l->width() / (float)size.width();
+        float factorh = l->height() / (float)size.height();
+        float factor = qMin(factorw, factorh);
+
+        f.setPointSizeF(f.pointSizeF() * factor);
+        l->setFont(f);
+    };
+
+    resize_label_font(ui->Name0);
+    resize_label_font(ui->Name1);
+    resize_label_font(ui->Name2);
+    resize_label_font(ui->Result0);
+    resize_label_font(ui->Result1);
+    resize_label_font(ui->Result2);
 }
 
 void page_highscores::changeTable()

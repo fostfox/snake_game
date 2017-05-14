@@ -18,7 +18,7 @@ signals:
     void button_resume();
 
 protected:
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *);
 
 public:
     explicit dialog_pause(QWidget *parent = 0);

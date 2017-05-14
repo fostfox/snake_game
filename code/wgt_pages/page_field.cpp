@@ -3,12 +3,33 @@
 #include <QPainter>
 #include <QStyleOption>
 
-void page_field::paintEvent(QPaintEvent *pe)
+void page_field::paintEvent(QPaintEvent *)
 {
     QStyleOption o;
     o.initFrom(this);
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
+
+void page_field::resizeEvent(QResizeEvent *)
+{
+    auto resize_label_font = [](QLabel* l) {
+        QFont f = l->font();
+
+        QFontMetrics metrics(f);
+        QSize size = metrics.size(0, l->text());
+        float factorw = l->width() / (float)size.width();
+        float factorh = l->height() / (float)size.height();
+        float factor = qMin(factorw, factorh);
+
+        f.setPointSizeF(f.pointSizeF() * factor);
+        l->setFont(f);
+    };
+
+    resize_label_font(ui->score_text);
+    resize_label_font(ui->player_name_text);
+    resize_label_font(ui->label_playerName);
+    resize_label_font(ui->score);
 }
 
 

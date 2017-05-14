@@ -17,7 +17,8 @@ signals:
     void button_startGame_pressed();
 
 protected:
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *);
+    void resizeEvent(QResizeEvent *);
 
 public:
     explicit page_configuration(QWidget *parent = 0);

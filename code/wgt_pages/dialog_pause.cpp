@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QStyleOption>
 
-void dialog_pause::paintEvent(QPaintEvent *pe)
+void dialog_pause::paintEvent(QPaintEvent *)
 {
     QStyleOption o;
     o.initFrom(this);

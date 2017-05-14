@@ -1,31 +1,30 @@
 <RCC>
     <qresource prefix="/">
-        <file>img/page_field/bonus1.png</file>
-        <file>img/page_field/bonus2.png</file>
-        <file>img/page_field/bonus3.png</file>
-        <file>img/page_field/empty.png</file>
-        <file>img/page_field/wall.png</file>
-        <file>img/dialog_property/title_dialog.png</file>
-        <file>img/page_field/snakeBody2.png</file>
-        <file>img/page_field/Tail_N.png</file>
-        <file>img/page_field/Tail_S.png</file>
-        <file>img/page_field/Tail_E.png</file>
-        <file>img/page_field/Tail_W.png</file>
-        <file>img/page_field/Head_N.png</file>
-        <file>img/page_field/Head_S.png</file>
-        <file>img/page_field/Head_E.png</file>
-        <file>img/page_field/Head_W.png</file>
-        <file>img/page_field/Body_side_SE.png</file>
-        <file>img/page_field/Body_side_NE.png</file>
-        <file>img/page_field/Body_side_NW.png</file>
-        <file>img/page_field/Body_side_SW.png</file>
-        <file>img/page_field/Body_NS.png</file>
-        <file>img/page_field/Body_WE.png</file>
         <file>fonts/Rust.ttf</file>
         <file>fonts/RustNew.otf</file>
         <file>fonts/RustNew-Regular.otf</file>
     </qresource>
     <qresource prefix="/BlueStyle">
+        <file>img/BlueStyle/page_field/bonus.png</file>
+        <file>img/BlueStyle/page_field/bonus2.png</file>
+        <file>img/BlueStyle/page_field/empty.png</file>
+        <file>img/BlueStyle/page_field/wall.png</file>
+        <file>img/dialog_property/title_dialog.png</file>
+        <file>img/BlueStyle/page_field/snakeBody2.png</file>
+        <file>img/BlueStyle/page_field/Tail_N.png</file>
+        <file>img/BlueStyle/page_field/Tail_S.png</file>
+        <file>img/BlueStyle/page_field/Tail_E.png</file>
+        <file>img/BlueStyle/page_field/Tail_W.png</file>
+        <file>img/BlueStyle/page_field/Head_N.png</file>
+        <file>img/BlueStyle/page_field/Head_S.png</file>
+        <file>img/BlueStyle/page_field/Head_E.png</file>
+        <file>img/BlueStyle/page_field/Head_W.png</file>
+        <file>img/BlueStyle/page_field/Body_side_SE.png</file>
+        <file>img/BlueStyle/page_field/Body_side_NE.png</file>
+        <file>img/BlueStyle/page_field/Body_side_NW.png</file>
+        <file>img/BlueStyle/page_field/Body_side_SW.png</file>
+        <file>img/BlueStyle/page_field/Body_NS.png</file>
+        <file>img/BlueStyle/page_field/Body_WE.png</file>
         <file>img/BlueStyle/diaog_pause/menuOff.png</file>
         <file>img/BlueStyle/diaog_pause/menuOn.png</file>
         <file>img/BlueStyle/diaog_pause/resumeOff.png</file>
@@ -56,5 +55,6 @@
         <file>img/BlueStyle/page_menu/settingsOff.png</file>
         <file>img/BlueStyle/page_menu/settingsOn.png</file>
         <file>Styles/Blue.css</file>
+        <file>img/BlueStyle/page_field/holes.png</file>
     </qresource>
 </RCC>

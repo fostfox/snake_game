@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QStyleOption>
 
-void page_Menu::paintEvent(QPaintEvent *pe)
+void page_Menu::paintEvent(QPaintEvent *)
 {
     QStyleOption o;
     o.initFrom(this);

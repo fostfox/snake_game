@@ -19,7 +19,7 @@ signals:
     void button_exit_pressed();
 
 protected:
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *);
 
 public:
     explicit page_Menu(QWidget *parent = 0);

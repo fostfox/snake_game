@@ -4,12 +4,32 @@
 #include <QPainter>
 #include <QStyleOption>
 
-void page_score::paintEvent(QPaintEvent *pe)
+void page_score::paintEvent(QPaintEvent *)
 {
     QStyleOption o;
     o.initFrom(this);
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
+}
+
+void page_score::resizeEvent(QResizeEvent *)
+{
+    auto resize_label_font = [](QLabel* l, bool min) {
+        QFont f = l->font();
+
+        QFontMetrics metrics(f);
+        QSize size = metrics.size(0, l->text());
+        float factorw = l->width() / (float)size.width();
+        float factorh = l->height() / (float)size.height();
+        float factor = min ? qMin(factorw, factorh) : qMax(factorw, factorh);
+
+        f.setPointSizeF(f.pointSizeF() * factor*0.9);
+        l->setFont(f);
+    };
+
+    resize_label_font(ui->label, true);
+    resize_label_font(ui->label_player, true);
+    resize_label_font(ui->label_score, true);
 }
 
 

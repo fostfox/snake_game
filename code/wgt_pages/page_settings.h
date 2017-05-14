@@ -18,7 +18,8 @@ signals:
     void button_menu_pressed();
 
 protected:
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *);
+    void resizeEvent(QResizeEvent*);
 
 private slots:
     void saveSettings();

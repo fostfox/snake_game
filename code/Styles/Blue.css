@@ -53,15 +53,14 @@ QWidget#page_configuration::font{
 
 QSlider#hSlider_speed::groove {
      border: 1px solid #999999;
-     height: 4px;
+     /*height: 4px;*/
      margin: 1px 0;
  }
 
 QSlider#hSlider_speed::handle  {
      background: #e1fb04;
      border: 1px solid #0d0a3b;
-     width: 7px;
-     height: 7px;
+
      margin: -5px -1px;
      border-radius: 3px;
      border-color: #7c911c;
@@ -243,6 +242,7 @@ QWidget#page_field{
 
 QFrame#frame_field{
         border: 4px solid #aacc14;
+
 }
 
 QPushButton#pushButton_menu{
@@ -271,6 +271,66 @@ color: #e1fb04;
 QLabel#label_playerName{
 font-family:"My Font";
 color: #e1fb04;
+}
+
+QLabel#lbl_Empty {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/empty.png);
+    image: url(:/BlueStyle/img/BlueStyle/page_field/empty.png);
+    background-image: url(:/BlueStyle/img/BlueStyle/page_field/empty.png);
+}
+QLabel#lbl_Snake2 {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/snakeBody2.png);
+}
+QLabel#lbl_Bonus2 {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/bonus2.png);
+}
+QLabel#lbl_Wall {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/wall.png);
+}
+QLabel#lbl_Bonus {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/bonus.png);
+}
+QLabel#lbl_Head_N {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Head_N.png);
+}
+QLabel#lbl_Head_S {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Head_S.png);
+}
+QLabel#lbl_Head_W {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Head_W.png);
+}
+QLabel#lbl_Head_E {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Head_E.png);
+}
+QLabel#lbl_Body_NS {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Body_NS.png);
+}
+QLabel#lbl_Body_WE {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Body_WE.png);
+}
+QLabel#lbl_Body_side_NW {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Body_side_NW.png);
+}
+QLabel#lbl_Body_side_NE {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Body_side_NE.png);
+}
+QLabel#lbl_Body_side_SW {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Body_side_SW.png);
+}
+QLabel#lbl_Body_side_SE {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Body_side_SE.png);
+}
+QLabel#lbl_Tail_N {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Tail_N.png);
+}
+QLabel#lbl_Tail_S {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Tail_S.png);
+}
+QLabel#lbl_Tail_W {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Tail_W.png);
+}
+QLabel#lbl_Tail_E {
+    border-image: url(:/BlueStyle/img/BlueStyle/page_field/Tail_E.png);
 }
 
 /*Field--------------------------------------*/

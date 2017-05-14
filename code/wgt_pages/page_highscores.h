@@ -24,7 +24,8 @@ public:
     ~page_highscores();
 
 protected:
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *);
+    void resizeEvent(QResizeEvent *);
 
 private:
     Ui::page_highscores *ui;

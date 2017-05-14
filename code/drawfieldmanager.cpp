@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QMainWindow>
 #include <QApplication>
+#include <QSettings>
 
 DrawFieldManager::DrawFieldManager(QWidget* gf, GameController *gc, QSize fieldSize, QObject *parent)
     : m_gameField(gf)
@@ -54,7 +55,7 @@ void DrawFieldManager::updateField_type1()
         for (int j = 0; j < m_fieldSize.height(); ++j) {
             switch (objFields[i][j]) {
             case GameController::fEmpty : imgField[i][j]->setPixmap(img_Empty); break;
-            case GameController::fBonus : imgField[i][j]->setPixmap(img_Bonus); break;
+            case GameController::fBonus : imgField[i][j]->setPixmap(img_Bonus2); break;
             case GameController::fSnake : imgField[i][j]->setPixmap(img_Snake2); break;
             case GameController::fWall  : imgField[i][j]->setPixmap(img_Wall);  break;
             }
@@ -107,25 +108,44 @@ void DrawFieldManager::updateField_type2()
 
 void DrawFieldManager::loadPictures()
 {
-    img_Empty = QPixmap(":/img/page_field/empty.png");
-    img_Snake2 = QPixmap(":/img/page_field/snakeBody2.png");
-    img_Bonus = QPixmap(":/img/page_field/bonus1.png");
-    img_Wall = QPixmap(":/img/page_field/wall.png");
+    QSettings settings("MonkeyCo", "Snake");
+    settings.beginGroup("game_settings");
+    int theme = settings.value("/theme",0).toInt();
+    settings.endGroup();
+    QString pref;
+    switch (theme) {
+    case 0: /* Blue */
+        pref = ":/BlueStyle/img/BlueStyle/page_field/";
+        break;
+    case 1: /* Purple */
+        pref = ":/PurpleStyle/img/PurpleStyle/page_field/";
+        break;
+    case 2: /* Beige */
+    default:
+        pref = ":/PurpleStyle/img/PurpleStyle/page_field/";
+        break;
+    }
 
-    img_Head_N = QPixmap(":/img/page_field/Head_N.png");
-    img_Head_S = QPixmap(":/img/page_field/Head_S.png");
-    img_Head_W = QPixmap(":/img/page_field/Head_W.png");
-    img_Head_E = QPixmap(":/img/page_field/Head_E.png");
-    img_Body_NS = QPixmap(":/img/page_field/Body_NS.png");
-    img_Body_WE = QPixmap(":/img/page_field/Body_WE.png");
-    img_Body_side_NW = QPixmap(":/img/page_field/Body_side_NW.png");
-    img_Body_side_NE = QPixmap(":/img/page_field/Body_side_NE.png");
-    img_Body_side_SW = QPixmap(":/img/page_field/Body_side_SW.png");
-    img_Body_side_SE = QPixmap(":/img/page_field/Body_side_SE.png");
-    img_Tail_N = QPixmap(":/img/page_field/Tail_N.png");
-    img_Tail_S = QPixmap(":/img/page_field/Tail_S.png");
-    img_Tail_W = QPixmap(":/img/page_field/Tail_W.png");
-    img_Tail_E = QPixmap(":/img/page_field/Tail_E.png");
+    img_Empty           = QPixmap(pref + "empty.png");
+    img_Snake2          = QPixmap(pref + "snakeBody2.png");
+    img_Bonus2          = QPixmap(pref + "bonus2.png");
+    img_Wall            = QPixmap(pref + "wall.png");
+
+    img_Bonus           = QPixmap(pref + "bonus.png");
+    img_Head_N          = QPixmap(pref + "Head_N.png");
+    img_Head_S          = QPixmap(pref + "Head_S.png");
+    img_Head_W          = QPixmap(pref + "Head_W.png");
+    img_Head_E          = QPixmap(pref + "Head_E.png");
+    img_Body_NS         = QPixmap(pref + "Body_NS.png");
+    img_Body_WE         = QPixmap(pref + "Body_WE.png");
+    img_Body_side_NW    = QPixmap(pref + "Body_side_NW.png");
+    img_Body_side_NE    = QPixmap(pref + "Body_side_NE.png");
+    img_Body_side_SW    = QPixmap(pref + "Body_side_SW.png");
+    img_Body_side_SE    = QPixmap(pref + "Body_side_SE.png");
+    img_Tail_N          = QPixmap(pref + "Tail_N.png");
+    img_Tail_S          = QPixmap(pref + "Tail_S.png");
+    img_Tail_W          = QPixmap(pref + "Tail_W.png");
+    img_Tail_E          = QPixmap(pref + "Tail_E.png");
 }
 
 bool DrawFieldManager::isNear_inFree(QPoint current, QPoint near, DrawFieldManager::Direction d)

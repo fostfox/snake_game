@@ -30,7 +30,8 @@ signals:
     void pressKey(int);
 
 protected:
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *);
+    void resizeEvent(QResizeEvent *);
 
 public:
     explicit page_field(QWidget *parent = 0);

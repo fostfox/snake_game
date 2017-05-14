@@ -22,9 +22,10 @@ public slots:
     void updateField_type2();
 
 private:
-    QPixmap img_Empty,       //HUCK:
+
+    QPixmap img_Empty,
             img_Snake2,
-            img_Bonus,
+            img_Bonus2, img_Bonus,
             img_Wall,
             img_Head_N, img_Head_S, img_Head_W, img_Head_E,
             img_Body_NS, img_Body_WE,

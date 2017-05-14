@@ -17,7 +17,8 @@ signals:
     void button_newGame_pressed();
 
 protected:
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *);
+    void resizeEvent(QResizeEvent *);
 
 public:
     //Конструктор осуществляет запись результатов в реестр
