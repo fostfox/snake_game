@@ -1,8 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>fonts/Rust.ttf</file>
-        <file>fonts/RustNew.otf</file>
-        <file>fonts/RustNew-Regular.otf</file>
+        <file>fonts/RustNew.ttf</file>
     </qresource>
     <qresource prefix="/BlueStyle">
         <file>img/BlueStyle/page_field/bonus.png</file>
@@ -153,5 +152,9 @@
         <file>img/BeigeStyle/page_field/Tail_S.png</file>
         <file>img/BeigeStyle/page_field/Tail_W.png</file>
         <file>img/BeigeStyle/page_field/wall.png</file>
+        <file>img/BeigeStyle/page_highscores/images/arcadeOff.png</file>
+        <file>img/BeigeStyle/page_highscores/images/arcadeOn.png</file>
+        <file>img/BeigeStyle/page_highscores/images/freeOff.png</file>
+        <file>img/BeigeStyle/page_highscores/images/freeOn.png</file>
     </qresource>
 </RCC>

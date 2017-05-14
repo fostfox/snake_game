@@ -48,15 +48,12 @@ QWidget#page_Menu{
 /*Configuration-----------------------------*/
 QSlider#hSlider_speed::groove {
      border: 1px solid #999999;
-     height: 4px;
      margin: 1px 0;
  }
 
 QSlider#hSlider_speed::handle  {
      background: #353d32;
      border: 1px solid #0d0a3b;
-     width: 7px;
-     height: 7px;
      margin: -5px -1px;
      border-radius: 3px;
      border-color: #7c911c;
@@ -327,12 +324,20 @@ QPushButton#pushButton_3{
         border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/freeOff.png);
 }
 
+QPushButton#pushButton_3:checked{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/freeOn.png);
+}
+
 QPushButton#pushButton_3::hover:pressed{
         border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/freeOn.png);
 }
 
 QPushButton#pushButton_2{
         border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/arcadeOff.png);
+}
+
+QPushButton#pushButton_2:checked{
+        border-image: url(:/BeigeStyle/img/BeigeStyle/page_highscores/images/arcadeOn.png);
 }
 
 QPushButton#pushButton_2::hover:pressed{

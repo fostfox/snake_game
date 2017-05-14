@@ -53,14 +53,12 @@ QWidget#page_configuration::font{
 
 QSlider#hSlider_speed::groove {
      border: 1px solid #999999;
-     /*height: 4px;*/
      margin: 1px 0;
  }
 
 QSlider#hSlider_speed::handle  {
      background: #e1fb04;
      border: 1px solid #0d0a3b;
-
      margin: -5px -1px;
      border-radius: 3px;
      border-color: #7c911c;

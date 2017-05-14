@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     MainWindow w(0);
 
     QFontDatabase::addApplicationFont(":/fonts/Rust.ttf");
+    QFontDatabase::addApplicationFont(":/fonts/RustNew.ttf");
 
     QFile file;
     switch(w.getStyle()){
