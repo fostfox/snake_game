@@ -15,6 +15,11 @@
 #include "drawfieldmanager.h"
 #include "dialog_pause.h"
 
+// ***********************************
+// To run the old version of the game
+    //#define OLD_VERSION
+// ***********************************
+
 namespace Ui {
 class page_field;
 }

@@ -3,6 +3,8 @@
 #include <QPainter>
 #include <QStyleOption>
 
+
+
 void page_field::paintEvent(QPaintEvent *)
 {
     QStyleOption o;
@@ -187,11 +189,16 @@ void page_field::updateField()
 {
     ui->score->setText(QString::number(getScore()));
 
-   if (m_gameMode == 0) {
-       m_drawFieldManager->updateField_type1();
-   } else {
-       m_drawFieldManager->updateField_type2();
-   }
+#ifndef  OLD_VERSION
+    m_drawFieldManager->updateField_type2();
+#endif //OLD_VERSION
+#ifdef  OLD_VERSION
+    if (m_gameMode == 0) {
+        m_drawFieldManager->updateField_type1();
+    } else {
+        m_drawFieldManager->updateField_type2();
+    }
+#endif //OLD_VERSION
 }
 
 void page_field::keyPressEvent(QKeyEvent *event)

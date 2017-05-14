@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>276</width>
-    <height>270</height>
+    <width>283</width>
+    <height>260</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>283</width>
+    <height>260</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>283</width>
+    <height>260</height>
+   </size>
   </property>
   <property name="palette">
    <palette>
@@ -86,11 +98,8 @@
      <height>111</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
-   </property>
    <property name="pixmap">
-    <pixmap>:/img/page_field/bonus3.png</pixmap>
+    <pixmap resource="../resources.qrc">:/img/dialog_property/title.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -253,6 +262,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

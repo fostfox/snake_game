@@ -8,6 +8,11 @@ QPushButton#pushButton_continue{
     border-image: url(:/PurpleStyle/img/PurpleStyle/page_menu/images/continueOff.png);
 }
 
+QPushButton#pushButton_continue:disabled{
+    border-image: url(:/PurpleStyle/img/PurpleStyle/page_menu/images/continueDisabled.png);
+}
+
+
 QPushButton#pushButton_highscores{
     border-image: url(:/PurpleStyle/img/PurpleStyle/page_menu/images/recordsOff.png);
 }

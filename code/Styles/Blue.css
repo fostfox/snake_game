@@ -8,6 +8,10 @@ QPushButton#pushButton_continue{
     border-image: url(:/BlueStyle/img/BlueStyle/page_menu/continueOff.png);
 }
 
+QPushButton#pushButton_continue:disabled{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/continueDisabled.png);
+}
+
 QPushButton#pushButton_highscores{
     border-image: url(:/BlueStyle/img/BlueStyle/page_menu/recordsOff.png);
 }
