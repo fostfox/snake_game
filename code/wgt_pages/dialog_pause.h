@@ -20,9 +20,6 @@ signals:
 protected:
     void paintEvent(QPaintEvent *pe);
 
-public slots:
-    virtual void repaint();
-
 public:
     explicit dialog_pause(QWidget *parent = 0);
     ~dialog_pause();

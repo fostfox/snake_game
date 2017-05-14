@@ -11,11 +11,6 @@ void dialog_pause::paintEvent(QPaintEvent *pe)
     style()->drawPrimitive(QStyle::PE_Widget, &o, &p, this);
 }
 
-void dialog_pause::repaint()
-{
-    ui->label_pause->setFixedSize(this->size() * 0.5);
-}
-
 dialog_pause::dialog_pause(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::dialog_pause)

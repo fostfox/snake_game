@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>831</width>
-    <height>514</height>
+    <width>640</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="palette">
@@ -53,7 +53,7 @@
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="5,5,5" columnstretch="5,5,5" rowminimumheight="5,5,5" columnminimumwidth="5,5,5">
+  <layout class="QGridLayout" name="gridLayout" rowstretch="3,8,3" columnstretch="3,3,3" rowminimumheight="5,5,5" columnminimumwidth="5,5,5">
    <item row="1" column="1">
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="leftMargin">
@@ -69,36 +69,44 @@
       <number>5</number>
      </property>
      <item>
-      <widget class="QLabel" name="label_pause">
-       <property name="text">
-        <string/>
+      <widget class="QPushButton" name="button_resume">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="pixmap">
-        <pixmap resource="../resources.qrc">:/img/diaog_pause/pause.png</pixmap>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
-       <property name="scaledContents">
+       <property name="flat">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="button_resume">
-       <property name="text">
-        <string>Resume</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="button_retry">
-       <property name="text">
-        <string>Retry</string>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="button_backmenu">
-       <property name="text">
-        <string>Back to menu</string>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -158,8 +166,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

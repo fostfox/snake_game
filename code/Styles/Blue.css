@@ -51,27 +51,28 @@ QWidget#page_configuration::font{
     color: red;
 }
 
-QSlider#Slider::groove {
+QSlider#hSlider_speed::groove {
      border: 1px solid #999999;
-     width: 4px; 
-     margin: 5px 0;
+     height: 4px;
+     margin: 1px 0;
  }
- 
-QSlider#Slider::handle  {
-     background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #326cd9, stop:1 #8f8f8f);
+
+QSlider#hSlider_speed::handle  {
+     background: #e1fb04;
      border: 1px solid #0d0a3b;
-     width: 5px;
-	 height: 7px;
-     margin: -5px -3px; 
+     width: 7px;
+     height: 7px;
+     margin: -5px -1px;
      border-radius: 3px;
+     border-color: #7c911c;
  }
 
-QSlider#Slider::add-page  {
-     background: #0d3eba;
+QSlider#hSlider_speed::add-page  {
+     background: #1ba640;
  }
 
-QSlider#Slider::sub-page  {
-     background: #346cfa;
+QSlider#hSlider_speed::sub-page  {
+     background: #e1fb04;
  }
 
 QPushButton#pushButton_startGame{
@@ -108,6 +109,13 @@ color: #e1fb04
 QLabel#Field_Size{
 font-family: "Rust";
 color: #e1fb04
+}
+
+QLineEdit#lineEdit_playerName{
+    font-family: "My Font";
+    background: #1ba640;
+    color: #e1fb04;
+    border: none;
 }
 
 QComboBox#comboBox_gameMode{
@@ -158,104 +166,213 @@ QWidget#page_configuration{
  /*Configuration-----------------------------*/
 
 /*Pause--------------------------------------*/
-QWidget#Pause{
-    background-image: url();
-    color: #000000;
+QPushButton#button_resume{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/resumeOff.png);
 }
 
-QPushButton#Resume{
-    border-image: url();
+QPushButton#button_retry{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/retryOff.png);
 }
 
-QPushButton#Retry{
-    border-image: url();
+QPushButton#button_backmenu{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/menuOff.png);
 }
 
-QPushButton#Menu{
-    border-image: url();
+QPushButton#button_resume:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/resumeOn.png);
 }
 
-QPushButton#Resume:hover:pressed{
-    border-image: url();
+QPushButton#button_retry:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/retryOn.png);
 }
 
-QPushButton#Retry:hover:pressed{
-    border-image: url();
-}
-
-QPushButton#Menu:hover:pressed{
-    border-image: url();
+QPushButton#button_backmenu:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/menuOn.png);
 }
 /*Pause--------------------------------------*/
 
 /*Result-------------------------------------*/
-QWidget#Result{
-    background-image: url();
-    color: #000000;
+QWidget#page_score{
+        image: url(:/BlueStyle/img/BlueStyle/page_configuration/background.png);
 }
 
-QPushButton#Highscores{
-    border-image: url();
+QPushButton#button_backMenu{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/menuOff.png);
 }
 
-QPushButton#NewGame{
-    border-image: url();
+QPushButton#button_backMenu:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/menuOn.png);
 }
 
-QPushButton#BackToMenu{
-    border-image: url();
+QPushButton#button_highscores{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/recordsOff.png);
 }
 
-QPushButton#Highscores:hover:pressed{
-    border-image: url();
+QPushButton#button_highscores:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/recordsOn.png);
 }
 
-QPushButton#NewGame:hover:pressed{
-    border-image: url();
+QPushButton#button_newGame{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/newgameOff.png);
 }
 
-QPushButton#BackToMenu:hover:pressed{
-    border-image: url();
+QPushButton#button_newGame:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_menu/newgameOn.png);
+}
+
+QLabel#label{
+font-family: "My Font";
+color: #e1fb04;
+}
+
+QLabel#label_player{
+font-family: "My Font";
+color: #e1fb04;
+}
+
+QLabel#label_score{
+font-family: "My Font";
+color: #e1fb04;
 }
 /*Result-------------------------------------*/
 
+/*Field--------------------------------------*/
+QWidget#page_field{
+        image: url(:/BlueStyle/img/BlueStyle/page_configuration/background.png);
+}
+
+QFrame#frame_field{
+        border: 4px solid #aacc14;
+}
+
+QPushButton#pushButton_menu{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/menuOff.png);
+}
+
+QPushButton#pushButton_menu:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/diaog_pause/menuOn.png);
+}
+
+QLabel#score_text{
+font-family: "My Font";
+color: #e1fb04;
+}
+
+QLabel#player_name_text{
+font-family: "My Font";
+color: #e1fb04;
+}
+
+QLabel#score{
+font-family:"My Font";
+color: #e1fb04;
+}
+
+QLabel#label_playerName{
+font-family:"My Font";
+color: #e1fb04;
+}
+
+/*Field--------------------------------------*/
+
 /*Settings-------------------------------------*/
-QWidget#Settings{
-    background-image: url();
-    color: #000000;
+QComboBox#comboBox{
+    font-family: "Rust";
+    color: #e1fb04;
+    background-color: #1ba640;
+    border:none;
 }
 
-QPushButton#BackToMenu{
-    border-image: url();
+QComboBox#comboBox::drop-down{
+    border:none;
+    background-color: #e1fb04;
 }
 
-QPushButton#BackToMenu:hover:pressed{
-    border-image: url();
+QComboBox#comboBox:focus{
+    border: none;
+}
+
+QComboBox#comboBox QAbstractItemView{
+    background-color: #1ba640;
+    color: #e1fb04
+}
+
+QWidget#page_settings{
+    image: url(:/BlueStyle/img/BlueStyle/page_configuration/background.png);
+}
+
+QPushButton#pushButton_menu{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/menuOff.png);
+}
+
+QPushButton#pushButton_menu:hover:pressed{
+    border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/menuOn.png);
+}
+
+QLabel#labelTheme{
+font-family: "Rust";
+color: #e1fb04;
 }
 /*Settings-------------------------------------*/
 
 /*Highscores-----------------------------------*/
-QWidget#Highscores{
-    background-image: url();
-    color: #000000;
+QWidget#page_highscores{
+        image: url(:/BlueStyle/img/BlueStyle/page_highscores/background.png);
 }
 
-QPushButton#ArcadeFree{
-    border-image: url();
+QPushButton#pushButton{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/menuOff.png);
 }
 
-QPushButton#ArcadeFree:hover:pressed{
-    border-image: url();
+QPushButton#pushButton::hover:pressed{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/menuOn.png);
 }
 
-QPushButton#BackToMenu{
-    border-image: url();
+QPushButton#pushButton_3{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/freeOff.png);
 }
 
-QPushButton#BackToMenu:hover:pressed{
-    border-image: url();
+QPushButton#pushButton_3::hover:pressed{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/freeOn.png);
 }
 
+QPushButton#pushButton_2{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/ArcadeOff.png);
+}
+
+QPushButton#pushButton_2::hover:pressed{
+        border-image: url(:/BlueStyle/img/BlueStyle/page_highscores/arcadeOn.png);
+}
+
+QLabel#Name0{
+        font-family: "My Font";
+        color: #1ba640;
+}
+
+QLabel#Name1{
+        font-family: "My Font";
+        color: #1ba640;
+}
+
+QLabel#Name2{
+        font-family: "My Font";
+        color: #1ba640;
+}
+
+QLabel#Result0{
+        font-family: "My Font";
+        color: #1ba640;
+}
+
+QLabel#Result1{
+        font-family: "My Font";
+        color: #1ba640;
+}
+
+QLabel#Result2{
+        font-family: "My Font";
+        color: #1ba640;
+}
 /*Highscores-----------------------------------*/
 
 /*General------------------------------------*/

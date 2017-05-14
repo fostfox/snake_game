@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>596</width>
-    <height>364</height>
+    <width>640</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -107,13 +107,16 @@
               <number>0</number>
              </property>
              <property name="text">
-              <string>Player name:</string>
+              <string>Player name</string>
              </property>
              <property name="textFormat">
               <enum>Qt::AutoText</enum>
              </property>
              <property name="scaledContents">
               <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
              <property name="indent">
               <number>-1</number>
@@ -134,7 +137,17 @@
             </spacer>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_playerName"/>
+            <widget class="QLineEdit" name="lineEdit_playerName">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maxLength">
+              <number>18</number>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -175,6 +188,9 @@
            </item>
            <item>
             <widget class="QSlider" name="hSlider_speed">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
              <property name="minimum">
               <number>6</number>
              </property>

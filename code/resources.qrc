@@ -22,6 +22,8 @@
         <file>img/page_field/Body_NS.png</file>
         <file>img/page_field/Body_WE.png</file>
         <file>fonts/Rust.ttf</file>
+        <file>fonts/RustNew.otf</file>
+        <file>fonts/RustNew-Regular.otf</file>
     </qresource>
     <qresource prefix="/BlueStyle">
         <file>img/BlueStyle/diaog_pause/menuOff.png</file>
