@@ -81,7 +81,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,1,2">
+        <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,3">
          <item>
           <widget class="QLabel" name="labelTheme">
            <property name="text">

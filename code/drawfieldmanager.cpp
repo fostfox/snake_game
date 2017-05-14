@@ -122,7 +122,7 @@ void DrawFieldManager::loadPictures()
         break;
     case 2: /* Beige */
     default:
-        pref = ":/PurpleStyle/img/PurpleStyle/page_field/";
+        pref = ":/BeigeStyle/img/BeigeStyle/page_field/";
         break;
     }
 

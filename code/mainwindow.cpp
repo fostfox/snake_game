@@ -112,6 +112,11 @@ void MainWindow::destroyGameField()
     m_page_field=nullptr;
 }
 
+int MainWindow::getStyle()
+{
+    return m_style;
+}
+
 void MainWindow::loadPage_configuration()
 {
    m_page_configuration = new page_configuration(this);
@@ -156,6 +161,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     m_page_field=nullptr;
+
+    QSettings settings("MonkeyCo", "Snake");
+    settings.beginGroup("game_settings");
+    m_style=settings.value("/theme",0).toInt();
+    settings.endGroup();
     //Открытие диалогового окна разрешения
     loadPage_dialogProperty();    
 }

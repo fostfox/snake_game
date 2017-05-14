@@ -54,7 +54,7 @@ void page_settings::saveSettings()
 page_settings::page_settings(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::page_settings)
-  ,themes({"Dark forest","Savana"})
+  ,themes({"Blue neon","Dark moon","Wild west"})
 {
     ui->setupUi(this);
     //Заполняем комбобокс

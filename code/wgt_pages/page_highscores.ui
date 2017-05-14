@@ -562,6 +562,9 @@
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
          <property name="flat">
           <bool>true</bool>
          </property>
@@ -590,6 +593,9 @@
          </property>
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
          <property name="flat">
           <bool>true</bool>
